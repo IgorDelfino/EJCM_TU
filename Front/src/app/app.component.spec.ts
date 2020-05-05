@@ -6,6 +6,40 @@ import { fakeAsync, tick, ComponentFixture } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA, ɵivyEnabled as ivyEnabled } from '@angular/core';
 
 
+describe('Teste para UI', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
+beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule, NoopAnimationsModule
+      ],
+      declarations: [
+        AppComponent
+      ],
+      schemas: [ NO_ERRORS_SCHEMA ],
+  }).compileComponents();
+  }));
+  
+  beforeEach(() => {
+        fixture = TestBed.createComponent(AppComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+      });
+    
+     it('Deve renderizar mensagem no h1', async(() => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const compiled = fixture.debugElement.nativeElement;
+      expect(compiled.querySelector('h1').textContent).toEqual('TU Paper');
+  }));
+  
+  it('Deve tirar o snapshot', () => {
+    expect(fixture).toMatchSnapshot();
+});
+})
+  
+  
 
 // describe('AppComponent', () => {
 //   beforeEach(async(() => {
@@ -39,22 +73,31 @@ import { NO_ERRORS_SCHEMA, ɵivyEnabled as ivyEnabled } from '@angular/core';
 //   });
 // });
 
+//--------------------------------------------------------------------------
 
-describe('Teste para UI', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-  }).compileComponents();
-  }));
+// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-    it('Deve renderizar mensagem no h1', async(() => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const compiled = fixture.debugElement.nativeElement;
-      expect(compiled.querySelector('h1').textContent).toEqual('TU Paper');
-  }))})
+// import { SimpleWithStylesComponent } from './simple-with-styles.component';
+// import { ChildComponent } from '../medium/child.component';
 
+// describe('SimpleWithStylesComponent', () => {
+//   let component: SimpleWithStylesComponent;
+//   let fixture: ComponentFixture<SimpleWithStylesComponent>;
+
+//   beforeEach(async(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [ SimpleWithStylesComponent, ChildComponent ]
+//     })
+//     .compileComponents();
+//   }));
+
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(SimpleWithStylesComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
+
+//   it('should generate snapshot without nghost/ngcontent', () => {
+//     expect(fixture).toMatchSnapshot();
+//   });
+// });

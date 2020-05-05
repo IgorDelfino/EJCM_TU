@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teste para UI Deve tirar o snapshot do body 1`] = `
+<app-root
+  title={[Function String]}
+>
+  <html
+    lang="en"
+  >
+    <head>
+      <link
+        href="./app.component.scss"
+        rel="style"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Qwigley&display=swap"
+        rel="stylesheet"
+      />
+      <meta
+        charset="utf-8"
+      />
+      <title>
+        TU Paper
+      </title>
+    </head>
+    <body>
+      <header
+        class="header"
+      >
+        <h1>
+          TU Paper
+        </h1>
+      </header>
+    </body>
+  </html>
+</app-root>
+`;
