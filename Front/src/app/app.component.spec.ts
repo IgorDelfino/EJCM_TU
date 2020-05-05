@@ -51,10 +51,10 @@ describe('Teste para UI', () => {
       ],
   }).compileComponents();
   }));
-  // let component: AppComponent;
+
     it('Deve renderizar mensagem no h1', async(() => {
       const fixture = TestBed.createComponent(AppComponent);
       const compiled = fixture.debugElement.nativeElement;
-      expect(compiled.querySelector('h1').textContent).toEqual('helloworld');
+      expect(compiled.querySelector('h1').textContent).toEqual('TU Paper');
   }))})
 
