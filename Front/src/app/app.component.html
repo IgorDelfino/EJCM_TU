@@ -2,14 +2,20 @@
     .header{
     background-color: #238080;
     font-family: 'Qwigley', cursive;
-    font-size: 2em;
+    font-size: 25px;
     margin-left: 0;
-}
+    margin:0;
+   }
+   .titulo{
+    margin:0px;
+   }
+   
+   
 </style>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="margin-top:0px;">
 
 <head>
     <link href = "./app.component.scss" rel="style">
@@ -17,10 +23,13 @@
     <meta charset = "utf-8"/>
     <title>TU Paper</title>
 </head>
-
-<body>
-    <header class="header">
-        <h1>TU Paper</h1>
-    </header>
-</body>
+    <div  class="header">       
+        <h1 class="titulo">TU Paper</h1>       
+    </div>
+    <body style="display:flex; margin-top: 0px; margin-left: 35px; margin-right:0px;">
+    
+        <div class="content">
+            <app-produto></app-produto>
+        </div>
+    </body>
 </html>
