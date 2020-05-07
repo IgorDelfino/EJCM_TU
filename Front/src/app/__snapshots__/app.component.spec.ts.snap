@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Teste para UI Deve tirar o snapshot do body 1`] = `
+exports[`Teste para UI Deve tirar o snapshot 1`] = `
 <app-root
   title={[Function String]}
 >
