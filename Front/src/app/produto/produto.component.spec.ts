@@ -2,10 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProdutoComponent } from './produto.component';
 
+
 describe('ProdutoComponent', () => {
   let component: ProdutoComponent;
   let fixture: ComponentFixture<ProdutoComponent>;
-
+  let container = null;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ProdutoComponent ]
@@ -22,4 +23,5 @@ describe('ProdutoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+
+})
