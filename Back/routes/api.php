@@ -25,6 +25,9 @@ Route::get('product/{id}', 'ProductController@show');
 Route::post('product', 'ProductController@store');
 Route::put('product/{id}', 'ProductController@update');
 Route::delete('product/{id}', 'ProductController@destroy');
+Route::post('purchase/{id}', 'ProductController@purchase');
+
+
 
 
 //passport routes

@@ -105,4 +105,16 @@ class ProductController extends Controller
           return response()->error($data, 400);
         }
     }
+    public function purchase($id)
+    {
+        $product = Product::findOrFail($id);
+        if ($product->stock > 0){
+          $product->stock = ($product->stock - 1);
+          $product->save();
+          return response()->json(["Stock has been changed"]);
+        } else {
+          return response()->json(["We are out of stock"]);
+        }
+
+    }
 }
