@@ -38,4 +38,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Função de exemplo inicial "Hello World do PHPUnit"
+     * 
+     */
+    public function userHasName() {
+        if ($this->name) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
 }
