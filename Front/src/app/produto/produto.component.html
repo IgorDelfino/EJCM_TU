@@ -1,13 +1,13 @@
 
-<div class="row">
+<div class="row" >
     <p class="depart">Mais vendidos</p>
-    <div class="column" *ngFor="let p of produtos">
+    <div class="column" *ngFor="let produto of produtos">
       <div class="card" style="width: 13rem;">
-        <img class="card-img-top" [src]="[p.img]" alt="Card image cap" style="width:100%; height: 30%;">
+        <img class="card-img-top" [src]="[produto.img]" alt="Card image cap" style="width:100%; height: 30%;">
         <div class="card-body">
-          <p class="card-description">{{p.descricao}} </p>
-          <p class="card-price">{{p.preco}}</p>
-          <button type="button" class="button">Comprar</button>
+          <p class="card-description">{{produto.descricao}} </p>
+          <p class="card-price" >{{produto.preco}}</p>
+          <button type="button" class="button" (click)="mudaPreco(produto)">Comprar</button>
         </div>
       </div>
     </div>
