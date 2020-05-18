@@ -36,7 +36,7 @@ describe('ProdutoService', () => {
     _backend.verify();
   }));
 
-  it('should call the GET heroes api and return all results', () => {
+  it('should call the GET produtos api and return all results', () => {
     let actualDataAll = {};
 
     service.getProdutos().subscribe(data => (actualDataAll = data));
@@ -44,13 +44,13 @@ describe('ProdutoService', () => {
     backend
       .expectOne((req: HttpRequest<any>) => {
         return req.url === `${produtoUrl}` && req.method === 'GET';
-      }, `GET all hero data from ${produtoUrl}`)
+      }, `GET all produto data from ${produtoUrl}`)
       .flush(expectedDataAll);
 
     expect(actualDataAll).toEqual(expectedDataAll);
   });
 
-  it('should call the GET hero api with id and return the result', () => {
+  it('should call the GET produto api with id and return the result', () => {
     let actualData = {};
 
     service.getProdutos().subscribe(data => (actualData = data));
@@ -58,7 +58,7 @@ describe('ProdutoService', () => {
     backend
       .expectOne((req: HttpRequest<any>) => {
         return req.url === `${produtoUrl}` && req.method === 'GET' && req.params.get('id') === '1';
-      }, `GET hero data from ${produtoUrl}?id=1`)
+      }, `GET produto data from ${produtoUrl}?id=1`)
       .flush(expectedData);
 
     expect(actualData).toEqual(expectedData);
@@ -70,7 +70,7 @@ describe('ProdutoService', () => {
     [3, { descricao:'Produto3', preco: 'R$10,00' }],
     [4, { descricao:'Produto4', preco: 'R$10,00'}],
     [5,{ descricao:'Produto3', preco: 'R$10,00'}]
-  ])('should call the GET hero api and return the result', (id: number, testData: any) => {
+  ])('should call the GET produto api and return the result', (id: number, testData: any) => {
     let actualData = {};
 
     service.getProdutos().subscribe(data => (actualData = data));
@@ -78,7 +78,7 @@ describe('ProdutoService', () => {
     backend
       .expectOne((req: HttpRequest<any>) => {
         return req.url === `${produtoUrl}` && req.method === 'GET';
-      }, `GET hero data from ${produtoUrl}?id=${id}`)
+      }, `GET produto data from ${produtoUrl}?id=${id}`)
       .flush(testData);
 
     expect(actualData).toEqual(testData);
@@ -87,12 +87,12 @@ describe('ProdutoService', () => {
   it('should send an expected GET request and throw error to console when an error occurs', () => {
     service.getProdutos().subscribe();
 
-    const getHeroRequest = backend.expectOne((req: HttpRequest<any>) => {
+    const getprodutoRequest = backend.expectOne((req: HttpRequest<any>) => {
       return req.url === `${produtoUrl}` && req.method === 'GET' && req.params.get('id') === '1';
-    }, `GET hero data from ${produtoUrl}?id=1`);
+    }, `GET produto data from ${produtoUrl}?id=1`);
 
     // Stimulate an error happens from the backend
-    getHeroRequest.error(new ErrorEvent('ERROR_GET_HERO_DATA'));
+    getprodutoRequest.error(new ErrorEvent('ERROR_GET_produto_DATA'));
 
     expect(console.error).toHaveBeenCalled();
   });
