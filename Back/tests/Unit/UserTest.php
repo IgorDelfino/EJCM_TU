@@ -27,5 +27,22 @@ class UserTest extends TestCase
         $user->name = "Teste";
         $this->assertTrue($user->userHasName());
     }
+    /**test */
+    /**public function testCreateUser(){
+        $data = ['name' => 'igor',
+                'email' => 'igor@igor.com',
+                'password' => '123456',
+                'credits' => 500];
+
+        $user = User::createUser($data);
+
+        $this->assertInstanceOf(User::class, $user);
+
+        $this->assertEquals($data['name'],$user->name);
+        $this->assertEquals($data['email'],$user->email);
+        $this->assertEquals($data['password'],$user->password);
+        $this->assertEquals($data['credits'],$user->credits);
+
+    }*/
 
 }
