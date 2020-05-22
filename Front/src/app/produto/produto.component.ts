@@ -59,29 +59,18 @@ export class ProdutoComponent implements OnInit {
   }
    
    alteraEstoque(produto){
-    console.log(produto.estoque)
-       produto.estoque --;
-       console.log(produto.estoque)
-       return;
-    };
+       produto.estoque --
+    }
+
     Sum(a, b){
       return a + b;
     }
 
-  // mudaPreco(produto){
-  //     console.log(produto.preco)
-  //     if ((produto.preco >= 20)){
-  //        produto.preco ++;
-  //        console.log(produto.preco)
-  //        return;
-  //     }
-  // somaItemsEstoque(produtos){
-  //   return produtos(function(total, produto){
-  //     return total + produto.estoque;
-
-  //   }, 0);
-  // };
-  
+    forEach(items, callback) {
+      for (let index = 0; index < items.length; index++) {
+        callback(items[index]);
+      }
+    }
 }
 
 
