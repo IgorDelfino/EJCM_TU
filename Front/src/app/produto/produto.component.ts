@@ -67,7 +67,12 @@ export class ProdutoComponent implements OnInit {
     Sum(a, b){
       return a + b;
     }
-
+ 
+    forEach(items, callback){
+      for(let index = 0; index < items.length; index++){
+        callback(items[index]);
+      }
+    }
   // mudaPreco(produto){
   //     console.log(produto.preco)
   //     if ((produto.preco >= 20)){
