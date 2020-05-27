@@ -1,0 +1,26 @@
+Construindo ReactiveForm em Angular
+
+1) Na pasta app.module.ts importar:
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+e no @NgModule colocar nos imports:
+ReactiveFormsModule
+FormsModule
+
+2)Na pasta onde vc quer colocar o form (no caso aqui na login) colocar na pasta login.component.ts:
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+e dentro dos parentenses do constructor:
+public formbuilder: FormBuilder
+
+3)Declarar variavel no formulario:
+antes do constructor e dentro do export colocar:
+
+loginForm: FormGroup;
+
+4) Dentro das chaves do construtor: construindo o email e a senha
+this.loginForm = this.formbuilder.group({
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(6)]]
+    })
+
