@@ -31,6 +31,16 @@ describe('<ProdutoComponent/>', () =>{
     it('function was called ', () =>{
       expect(component.alteraEstoque).toBeCalled
     })
+    it('função alteraEstoque', ()=>{
+      const produto =
+      {
+        descricao:"Papel Sulfite Chamequinho A-4 100 Folhas Cor Azul 1UN",
+        preco:25,
+        img:"../../assets/produtos/papel.jpg",
+        estoque: 20
+      }
+      expect(component.alteraEstoque(produto.estoque)).toBe(produto.estoque --)
+    })
   })
 
   describe('#forEach', ()=>{
@@ -38,7 +48,7 @@ describe('<ProdutoComponent/>', () =>{
       component.forEach([0,1],mockCallback);
     })
 
-    it('the mock function is called twice', () =>{
+    it('the mockfunction is called twice', () =>{
       expect(mockCallback.mock.calls.length).toBe(2);
     })
 
@@ -46,7 +56,7 @@ describe('<ProdutoComponent/>', () =>{
       expect(mockCallback.mock.calls[1][0]).toBe(1);
     })
 
-    it('the first argument of the first call to the function was 1', () => {
+    it('the first argument of the first call to yhe function was 1', () => {
       expect(mockCallback.mock.calls[0][0]).toBe(0);
     })
 

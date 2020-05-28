@@ -50,8 +50,7 @@ export class ProdutoComponent implements OnInit {
         estoque: 30
       }
     ]
-    module.exports=this.alteraEstoque(this.produtos);
-    module.exports=this.Sum(this.a,this.b);
+   
   }
 
   ngOnInit(): void {
