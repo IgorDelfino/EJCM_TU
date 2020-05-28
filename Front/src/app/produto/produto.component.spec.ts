@@ -3,15 +3,32 @@ import { ConfigureFn, configureTests } from 'src/test-config.helper'
 import {Produto} from '../service/produto';
 import { ProdutoComponent } from './produto.component';
 import { NO_ERRORS_SCHEMA, ɵivyEnabled as ivyEnabled } from '@angular/core';
-import { toBase64String } from '@angular/compiler/src/output/source_map';
- //import * as alteraEstoque from './produto.component';
 
-const mockCallback = jest.fn(items => 42 + items);
 
-describe('<ProdutoComponent/>', () =>{
+//função alteraEstoque mockada
+const mockedAlteraEstoque = jest.fn();
+
+const Produtos: Produto[] = [
+  {
+    descricao:"Bloco Adesivo",
+    preco:22,
+    img:'../../assets/produtos/post-it.jpg',
+    estoque: 40
+      
+  },
+  {
+    descricao:"Fichário",
+    preco:23,
+    img:'../../assets/produtos/post-it.jpg',
+    estoque: 25
+  }
+
+];
+
+describe('mock simples', () => {
   let component: ProdutoComponent;
   let fixture: ComponentFixture<ProdutoComponent>;
-
+  
   beforeEach(async(() => {
     const configure: ConfigureFn = testBed => {
       testBed.configureTestingModule({
@@ -27,48 +44,34 @@ describe('<ProdutoComponent/>', () =>{
     });
   }));
 
-  describe('#alteraEstoque', () =>{
-    it('function was called ', () =>{
-      expect(component.alteraEstoque).toBeCalled
-    })
-    it('função alteraEstoque', ()=>{
-      const produto =
-      {
-        descricao:"Papel Sulfite Chamequinho A-4 100 Folhas Cor Azul 1UN",
-        preco:25,
-        img:"../../assets/produtos/papel.jpg",
-        estoque: 20
-      }
-      expect(component.alteraEstoque(produto.estoque)).toBe(produto.estoque --)
-    })
-  })
+  // it('Ivy should be enabled', () => {
+  //        expect(ivyEnabled).toBeTruthy();   });
 
-  describe('#forEach', ()=>{
-    beforeEach( () =>{
-      component.forEach([0,1],mockCallback);
-    })
-
-    it('the mockfunction is called twice', () =>{
-      expect(mockCallback.mock.calls.length).toBe(2);
-    })
-
-    it('the first argument of the secont call to the function was 1',() => {
-      expect(mockCallback.mock.calls[1][0]).toBe(1);
-    })
-
-    it('the first argument of the first call to yhe function was 1', () => {
-      expect(mockCallback.mock.calls[0][0]).toBe(0);
-    })
-
-    it('the return value of the first call to the function was 42', () =>{
-      expect(mockCallback.mock.results[0].value).toBe(42);
-    })
-  })
-  
+// espera-se que ele renderize o componente do produto
+  it('should create the component produto', async(() => {
+         const produto = component;
+        expect(produto).toBeTruthy();   
+  }));
 })
 
+    
+    // beforeEach(async(() => {
+  //   TestBed.configureTestingModule({
+  //     declarations: [ ProdutoComponent ]
+  //   })
+  //   .compileComponents();
+  // }));
 
-  
- 
-
+// beforeEach(() => {
+//     fixture = TestBed.createComponent(ProdutoComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
    
+  // afterEach(() => {
+  //   component=null;
+  // });
+  
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });

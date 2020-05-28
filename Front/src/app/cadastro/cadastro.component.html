@@ -4,20 +4,22 @@
     </div>
     <div class="cadastro">
         <div class="form">
-            <p class="crieConta">Crie Sua Conta TU</p>
-            <div class='name'>
-                <img src="../../assets/icons/user.png" class="icon">
-                <input type="text" placeholder="nome de usuário" style="text-align: center" >
-            </div>
-            <div class="email">
-                <img src="../../assets/icons/mail.png" class="icon">
-                <input type="email" placeholder="email" style="text-align: center">
-            </div>  
-            <div class="senha">
-                <img src="../../assets/icons/key.png" class="icon">
-                <input type="password" placeholder="senha" style="text-align: center">
-            </div> 
-            <button type="submit" class="bttn"  style="text-align: center; align-self:center">Criar Conta</button>
+            <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)">
+                <p class="crieConta">Crie Sua Conta TU</p>
+                <div class='name'>
+                    <img src="../../assets/icons/user.png" class="icon">
+                    <input type="text" placeholder="nome de usuário" style="text-align: center" formControlName="name" >
+                </div>
+                <div class="email">
+                    <img src="../../assets/icons/mail.png" class="icon">
+                    <input type="email" placeholder="email" style="text-align: center" formControlName="email">
+                </div>  
+                <div class="senha">
+                    <img src="../../assets/icons/key.png" class="icon">
+                    <input type="password" placeholder="senha" style="text-align: center" formControlName="password">
+                </div> 
+                <button type="submit" class="bttn"  style="text-align: center; align-self:center">Criar Conta</button>
+            </form>
         </div>
         <label class="vaiParaLogin">Já Possui? Faça Seu Login!</label>
         <button type='button' class="bttn2">Fazer Login</button>

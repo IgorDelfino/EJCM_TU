@@ -8,14 +8,11 @@ import { Produto } from '../service/produto';
   styleUrls: ['./produto.component.scss']
 })
 export class ProdutoComponent implements OnInit {
-  //  Produtos:Produto[];
+   Produtos:Produto[];
    produtos;
-   a=1;
-   b:number=2;
-  constructor() { 
-    // module.exports=this.somaItemsEstoque(this.produtos);
+  constructor() { }
 
-     
+  ngOnInit(): void {
     this.produtos =[
       {
         descricao:"Bloco Adesivo Post-It® Rosa - 76 Mm X 76 Mm 1UN",
@@ -50,28 +47,16 @@ export class ProdutoComponent implements OnInit {
         estoque: 30
       }
     ]
-   
-  }
-
-  ngOnInit(): void {
     
   }
    
-   alteraEstoque(produto){
+  alteraEstoque(produto){
     console.log(produto.estoque)
        produto.estoque --;
        console.log(produto.estoque)
        return;
-    };
-    Sum(a, b){
-      return a + b;
     }
- 
-    forEach(items, callback){
-      for(let index = 0; index < items.length; index++){
-        callback(items[index]);
-      }
-    }
+
   // mudaPreco(produto){
   //     console.log(produto.preco)
   //     if ((produto.preco >= 20)){
@@ -79,13 +64,7 @@ export class ProdutoComponent implements OnInit {
   //        console.log(produto.preco)
   //        return;
   //     }
-  // somaItemsEstoque(produtos){
-  //   return produtos(function(total, produto){
-  //     return total + produto.estoque;
-
-  //   }, 0);
-  // };
-  
+     
 }
 
 
