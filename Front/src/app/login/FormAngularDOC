@@ -24,3 +24,21 @@ this.loginForm = this.formbuilder.group({
       password: [null, [Validators.required, Validators.minLength(6)]]
     })
 
+5) na pasta login.component.html colocar 
+
+<form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm)"> </form>
+
+envolvendo o formulario todo no html (div)
+
+6) Colocar
+
+formControllerName ="" 
+
+dentro de todos os botoes input respectivos
+
+7) cria a função submitForm na pasta login.component.ts abaixo do ngOnInit
+
+submitForm(form) {
+  console.log(form);
+  console.log(form.value);
+}

@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Qwigley&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+.content{
+    display:flex;
+    justify-content:space-evenly;
+}
+.barraLateral{
+    display:flex;
+    width:25vw;
+    height: 100%;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    background-color: #FF4700;
+}
+.saudacao{
+    align-self: center;
+    text-align:center;
+
+    color:white;
+    font-size:60px;
+    font-family: 'Qwigley', cursive;
+}
+
+.form{
+    background-color:#238080;
+    width:50vw;
+    
+    
+}
+.crieConta{
+    text-align:center;
+    color:white;
+    font-size:30px;
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+.name{
+    text-align:center;
+    padding-bottom:30px;
+    align-items:center;
+    
+}
+
+.email{
+    text-align:center;
+    align-self:center;
+    padding-bottom:30px;
+    align-items:center;
+}
+
+.senha{
+    text-align:center;
+    padding-bottom:30px;
+    align-self:center;
+    align-items:center;
+}
+
+input{
+    background-color:#3E3B3B;
+    width:40%;
+    margin-bottom:10px;
+    padding:15px 0px 15px 0px;
+    color:white;
+    outline:none;
+    border:none;
+    border-radius:5px;
+
+}
+
+.icon{
+    width:25px;
+    height:auto;
+    align-self:center;
+    padding-right:10px;
+    
+}
+.cadastro{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    align-items:center;
+    margin-left:20%;
+    margin-top: 7%;
+    
+}
+.bttn{
+    text-align:center;
+    padding-left:50px;
+    width:30%;
+    margin-left:37%;
+    margin-bottom:30px;
+    display:flex;
+    background-color:#16BFBF;
+    color:white;
+    font-family: 'Qwigley', cursive;
+    border-radius:10px;
+    border:none;
+    font-size:30px;
+    outline:none;
+    cursor:pointer;
+    align-self:center;
+    
+
+    
+}
+.vaiParaLogin{
+    margin-top:20px;
+    color:#238080;
+    font-size:30px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.bttn2{
+    align-self:center;
+    text-align:center;
+    background-color:#FF4700;
+    margin-top:5%;
+    padding:5px;
+    width:30%;
+    color:white;
+    font-family: 'Qwigley', cursive;
+    font-size:30px;
+    outline:none;
+    cursor:pointer;
+    border:none;
+    border-radius:10px;
+}

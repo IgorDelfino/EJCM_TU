@@ -5,6 +5,18 @@
     padding: 0 15px;
   
   }
+
+  .header{
+    background-color: #238080;
+    font-family: 'Qwigley', cursive;
+    font-size: 25px;
+    margin-left: 0;
+    margin:0;
+   }
+   .titulo{
+    margin:0px;
+   }
+
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
   /* Remove extra left and right margins, due to padding */
   .row {margin: 0 -5px;}
