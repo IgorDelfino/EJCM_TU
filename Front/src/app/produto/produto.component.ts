@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Produto } from '../service/produto';
-// import { ProdutoService } from '../service/produto.service';
 
 @Component({
   selector: 'app-produto',
@@ -59,9 +57,7 @@ export class ProdutoComponent implements OnInit {
   }
    
    alteraEstoque(produto){
-    console.log(produto.estoque)
        produto.estoque --;
-       console.log(produto.estoque)
        return;
     };
     Sum(a, b){
@@ -72,21 +68,7 @@ export class ProdutoComponent implements OnInit {
       for(let index = 0; index < items.length; index++){
         callback(items[index]);
       }
-    }
-  // mudaPreco(produto){
-  //     console.log(produto.preco)
-  //     if ((produto.preco >= 20)){
-  //        produto.preco ++;
-  //        console.log(produto.preco)
-  //        return;
-  //     }
-  // somaItemsEstoque(produtos){
-  //   return produtos(function(total, produto){
-  //     return total + produto.estoque;
-
-  //   }, 0);
-  // };
-  
+    }  
 }
 
 

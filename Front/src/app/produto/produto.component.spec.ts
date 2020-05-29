@@ -1,12 +1,24 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 import { ConfigureFn, configureTests } from 'src/test-config.helper'
-import {Produto} from '../service/produto';
 import { ProdutoComponent } from './produto.component';
 import { NO_ERRORS_SCHEMA, ɵivyEnabled as ivyEnabled } from '@angular/core';
+import { concatMap } from 'rxjs/operators';
 import { toBase64String } from '@angular/compiler/src/output/source_map';
- //import * as alteraEstoque from './produto.component';
 
 const mockCallback = jest.fn(items => 42 + items);
+// const mockEstoque = this.produto = [{
+//         descricao:"Bloco Adesivo Post-It® Rosa - 76 Mm X 76 Mm 1UN",
+//         preco:21,
+//         img:'../../assets/produtos/post-it.jpg',
+//         estoque: 30
+// }]
+
+// const mockEstoque = jest.fn(produto => [{
+//     descricao:"Bloco Adesivo Post-It® Rosa - 76 Mm X 76 Mm 1UN",
+//     preco:21,
+//     img:'../../assets/produtos/post-it.jpg',
+//     estoque: 30
+// }]);
 
 describe('<ProdutoComponent/>', () =>{
   let component: ProdutoComponent;
@@ -27,10 +39,16 @@ describe('<ProdutoComponent/>', () =>{
     });
   }));
 
-  describe('#alteraEstoque', () =>{
-    it('function was called ', () =>{
+  describe('#alteraEstoque', () => {
+    
+    it('function was called', () => {
       expect(component.alteraEstoque).toBeCalled
     })
+
+    // it('element decrease', () =>{
+    //   const estoque = component.alteraEstoque(mockEstoque);
+    //   expect(estoque).toBe(29)
+    // })
   })
 
   describe('#forEach', ()=>{
