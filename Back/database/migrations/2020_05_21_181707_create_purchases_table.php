@@ -17,8 +17,14 @@ class CreatePurchasesTable extends Migration
             $table->id();
             $table->string('date');
             $table->float('total_price');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
+
+        Schema::table('purchases', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
+
     }
 
     /**

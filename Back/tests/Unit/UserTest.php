@@ -7,6 +7,7 @@ use App\User;
 
 class UserTest extends TestCase
 {
+
     /**
      * A basic unit test example.
      *
@@ -18,17 +19,43 @@ class UserTest extends TestCase
     }
 
     /**
-     * Testa o caso positivo da função UserHasName.
-     * 
-     * 
+     * Função hello world! Para exemplificar o primeiro teste.
      */
     public function testUserHasName() {
         $user = new User();
         $user->name = "Teste";
         $this->assertTrue($user->userHasName());
     }
-    /**test */
-    /**public function testCreateUser(){
+
+    /*
+        Teste da função Add Credits;
+        Exemplo para o assertEquals.
+    */
+    public function testAddCredits() {
+        $user = new User();
+        $user->credits = 10;
+        $this->assertEquals(30, $user->addCredits(20));
+    }
+
+    /*  Pode ser abordado como feature test depois
+        Teste das relações de usuário
+    
+    public function testUserHasPurchases() {
+        $user = factory(User::Class)->create();
+        $purchase = factory(Purchase::class)-create(['user_id' => $user->id]);
+
+        $this->assertTrue($user->purchases->contains($purchase));
+
+        $this->assertEquals(1, $user->purchases->count());
+
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $user->purchases);
+    }
+    */
+
+    
+    /*  
+
+        public function testCreateUser(){
         $data = ['name' => 'igor',
                 'email' => 'igor@igor.com',
                 'password' => '123456',
@@ -43,6 +70,7 @@ class UserTest extends TestCase
         $this->assertEquals($data['password'],$user->password);
         $this->assertEquals($data['credits'],$user->credits);
 
-    }*/
+    }
+    */
 
 }

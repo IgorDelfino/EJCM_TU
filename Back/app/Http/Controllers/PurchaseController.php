@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Purchase;
+use App\Product;
 use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
@@ -84,4 +85,27 @@ class PurchaseController extends Controller
     {
         //
     }
+
+    /**
+     * Adiciona o produto no carrinho 
+     */
+    public function getProduct(Request $request, $id) {
+        $product = Product::findOrFail($id);
+        $added = $product->updateStock($request->$quantity);
+        if($added) {
+            $product->carts()->attach($request->purchase_id, ['quantity' => $request->quantity]);
+        } else {
+          return response()->json(['Produto esgotado!']);
+        }
+    }
+
+    /**
+     * Remove o produto do carrinho.
+     */
+    public function removeProduct(Request $request, $id) {
+        $product = Product::findOrFail($id);
+        $removed = $product->updateStock(-$request->$quantity);
+        $product->purchases()->detach($request->purchase_id);
+    }
+
 }

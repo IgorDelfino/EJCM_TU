@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use App\Purchase;
 
 class User extends Authenticatable
 {
@@ -51,7 +52,10 @@ class User extends Authenticatable
         }
     }
 
-    public function createUser(Request $request){
+    /*
+        Função que cria usuários, recebendo da controller
+    */
+    public function createUser($request){
         
         $user = new User;
 
@@ -62,7 +66,32 @@ class User extends Authenticatable
         $user->save();
 
         return json($user);
-
     }
     
+    /* Relacionando o usuário com as compras*/
+    public function purchases() {
+        return $this->hasMany('App\Purchase');
+    }
+
+    /* Adiciona créditos ao usuário*/
+    public function addCredits($value) {
+        return $this->credits += $value;
+    }
+
+    /* Inicia uma compra com o carrinho vazio */
+    public function beginPurchase() {
+        $newPurchase = Purchase::createPurchase($this->id);
+    }
+
+    /* Usuário finaliza a compra de um carrinho de produtos */
+    public function finishPurchase($id) {
+        $purchase = Purchase::find($id);
+        if ($purchase->total_price > $this->credits) {
+            return 0;
+        } 
+        $this->credits -= $purchase->total_price;
+        $this->beginPurchase();
+        return 1;
+    }
+ 
 }
