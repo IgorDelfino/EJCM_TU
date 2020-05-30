@@ -10,6 +10,7 @@ import { Produto } from '../service/produto';
 export class ProdutoComponent implements OnInit {
   //  Produtos:Produto[];
    produtos;
+   toggleCompra = true
    a=1;
    b:number=2;
   constructor() { 
@@ -62,14 +63,18 @@ export class ProdutoComponent implements OnInit {
        produto.estoque --
     }
 
-    Sum(a, b){
+    Sum (a, b){
       return a + b;
     }
 
-    forEach(items, callback) {
+    casaFunction (items, callback) {
       for (let index = 0; index < items.length; index++) {
         callback(items[index]);
       }
+    }
+
+    toggle () {
+      this.toggleCompra = !this.toggleCompra
     }
 }
 

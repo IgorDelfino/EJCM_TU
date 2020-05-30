@@ -1,10 +1,26 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 import { ConfigureFn, configureTests } from 'src/test-config.helper'
-import { NO_ERRORS_SCHEMA, ɵivyEnabled as ivyEnabled } from '@angular/core';
+import { NO_ERRORS_SCHEMA, ɵivyEnabled as ivyEnabled, Component } from '@angular/core';
 import { ProdutoComponent } from './produto.component';
 import { concatMap } from 'rxjs/operators';
 
 const mockCallback = jest.fn(items => 42 + items);
+const mockProduto = [
+  { 
+    descricao:"Bloco Adesivo Post-It® Rosa - 76 Mm X 76 Mm 1UN",
+    preco: 21,
+    img:'imagem.png',
+    estoque: 30
+  },
+  { 
+    descricao:"Bloco Adesivo Post-It® Rosa - 76 Mm X 76 Mm 1UN",
+    preco: 21,
+    img:'imagem.png',
+    estoque: 33
+    }
+  ]
+
+
 
 describe('<ProdutoComponent /> ', () => {
   let component: ProdutoComponent;
@@ -27,7 +43,7 @@ describe('<ProdutoComponent /> ', () => {
   
   describe('#render', () => {
     it('should create the component ProdutoComponent', async(() => {
-        const produto = component;
+      const produto = component;
       expect(produto).toBeTruthy();   
       }));
     it('should generate snapshot for ProdutoComponent', () => {
@@ -36,14 +52,21 @@ describe('<ProdutoComponent /> ', () => {
   })
 
   describe('#alteraEstoque', () => {
+
     it('function was called', () => {
       expect(component.alteraEstoque).toBeCalled
     })
+
+    it('shoud altered stock', () => {
+      expect(mockProduto[0].estoque).toBe(30)
+      component.alteraEstoque(mockProduto[0])
+      expect(mockProduto[0].estoque).toBe(29)
+    })
   })
 
-  describe('#forEach', () => {
+  describe('#function Casa', () => {
     beforeEach( () => {
-      component.forEach([0, 1], mockCallback);
+      component.casaFunction([0, 1], mockCallback);
       })
 
     it('the mock function is called twice', () => {
@@ -60,6 +83,20 @@ describe('<ProdutoComponent /> ', () => {
 
     it('the return value of the first call the the function was 42', () => {
       expect(mockCallback.mock.results[0].value).toBe(42)
+    })
+  })
+
+  describe('#toggle', () => {
+    it('shoud change status', () => {
+      expect(component.toggleCompra).toBeTruthy
+      component.toggle()
+      expect(component.toggleCompra).toBeFalsy
+    })
+  })
+
+  describe('#soma', () => {
+    it('shoud add 1 + 2 ', () => {
+      expect(component.Sum(1,2)).toBe(3)
     })
   })
 

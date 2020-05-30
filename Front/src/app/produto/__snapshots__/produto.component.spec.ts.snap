@@ -5,6 +5,7 @@ exports[`<ProdutoComponent />  #render should generate snapshot for ProdutoCompo
   a={[Function Number]}
   b={[Function Number]}
   produtos={[Function Array]}
+  toggleCompra={[Function Boolean]}
 >
   <div
     class="row"
