@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
 .invalid{
-    color: red;
+    border-color: red;
+    border-style: solid;
 }
 
 .content{
