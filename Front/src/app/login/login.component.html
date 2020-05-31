@@ -8,11 +8,11 @@
                 <p class="crieConta">FAÇA SEU LOGIN</p>
                 <div class="email">
                     <img src="../../assets/icons/mail.png" class="icon">
-                    <input [class.invalid]="loginForm.controls.email.invalid && loginForm.controls.email.touched" type="email" placeholder="email" style="text-align: center" formControlName="email">
+                    <input [class.invalid]="loginForm.controls.email.invalid && loginForm.controls.email.dirty" type="email" placeholder="email" style="text-align: center" formControlName="email">
                 </div>  
                 <div class="senha">
                     <img src="../../assets/icons/key.png" class="icon">
-                    <input [class.invalid]="loginForm.controls.password.invalid && loginForm.controls.password.touched" type="password" placeholder="senha" style="text-align: center" formControlName="password">
+                    <input [class.invalid]="loginForm.controls.password.invalid && loginForm.controls.password.dirty" type="password" placeholder="senha" style="text-align: center" formControlName="password">
                 </div> 
                 <button type="submit" class="bttn"  style="text-align: center; align-self:center">Entrar</button>
             </form>
