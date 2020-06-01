@@ -10,6 +10,8 @@ export class ProdutoComponent implements OnInit {
    produtos;
    a=1;
    b:number=2;
+   toggleCompra = true
+
   constructor() { 
     // module.exports=this.somaItemsEstoque(this.produtos);
 
@@ -57,18 +59,22 @@ export class ProdutoComponent implements OnInit {
   }
    
    alteraEstoque(produto){
-       produto.estoque --;
-       return;
-    };
-    Sum(a, b){
+       produto.estoque --
+    }
+
+    Sum (a, b){
       return a + b;
     }
- 
-    forEach(items, callback){
-      for(let index = 0; index < items.length; index++){
+
+    casaFunction (items, callback) {
+      for (let index = 0; index < items.length; index++) {
         callback(items[index]);
       }
-    }  
+    }
+
+    toggle () {
+      this.toggleCompra = !this.toggleCompra
+    }
 }
 
 
