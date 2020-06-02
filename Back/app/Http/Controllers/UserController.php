@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Purchase;
 use Illuminate\Http\Request;
-use 
 
 
 class UserController extends Controller
@@ -100,4 +100,16 @@ class UserController extends Controller
         return response()->error($data, 400);
       }
   }
+
+  public function buy(Request $request, $id) {
+      $user = User::findOrFail($id);
+      $purchase = Purchase::findOrFail($id);
+      $bought = $user->finishPurchase($purchase);
+      if ($bought) {
+          return response()->json(['Compra feita!']);
+      } else {
+          return response()->json(['Erro! A compra não pode ser feita']);
+      }
+  }
+
 }

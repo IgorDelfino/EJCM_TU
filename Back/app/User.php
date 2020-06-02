@@ -80,18 +80,18 @@ class User extends Authenticatable
 
     /* Inicia uma compra com o carrinho vazio */
     public function beginPurchase() {
-        $newPurchase = Purchase::createPurchase($this->id);
+        Purchase::createPurchase($this->id);
     }
 
     /* Usuário finaliza a compra de um carrinho de produtos */
-    public function finishPurchase($id) {
-        $purchase = Purchase::find($id);
+    public function finishPurchase($purchase) {
+        //$purchase = Purchase::findOrFail($id);//
         if ($purchase->total_price > $this->credits) {
-            return 0;
+            return false;
         } 
         $this->credits -= $purchase->total_price;
         $this->beginPurchase();
-        return 1;
+        return true;
     }
  
 }

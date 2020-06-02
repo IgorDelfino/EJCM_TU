@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use App\User;
+use App\Purchase;
 
 class UserTest extends TestCase
 {
@@ -36,6 +37,19 @@ class UserTest extends TestCase
         $user->credits = 10;
         $this->assertEquals(30, $user->addCredits(20));
     }
+
+    /*
+        Testando que a cada compra finalizada um novo carrinho é iniciado!
+    
+    public function testNewPurchaseInitAfterBuy() {
+        $user = $this->createMock(User::class);
+        $user->credits = 38;
+        $purchase = new Purchase();
+        $purchase->total_price = 32;
+        $user->expects($this->once())->method('beginPurchase');
+        $user->finishPurchase($purchase);
+    }*/
+
 
     /*  Pode ser abordado como feature test depois
         Teste das relações de usuário

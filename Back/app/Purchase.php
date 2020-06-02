@@ -15,8 +15,6 @@ class Purchase extends Model
         $purchase->user_id = $user_id;
 
         $purchase->save();
-
-        return json($purchase);
     } 
 
     public function user() {
@@ -25,6 +23,10 @@ class Purchase extends Model
 
     public function products() {
         return $this->belongsToMany('App\Product', 'carts')->withPivot('quantity');
+    }
+
+    public function getTotalPrice() {
+        return $this->total_price;
     }
 
 }

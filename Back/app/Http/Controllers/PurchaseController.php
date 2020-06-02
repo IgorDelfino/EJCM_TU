@@ -91,9 +91,11 @@ class PurchaseController extends Controller
      */
     public function getProduct(Request $request, $id) {
         $product = Product::findOrFail($id);
+        $purchase = Purchase::findOrFail($request->purchase_id);
         $added = $product->updateStock($request->$quantity);
         if($added) {
             $product->carts()->attach($request->purchase_id, ['quantity' => $request->quantity]);
+            $purchase->total_price += $product->price * $request->quantity;
         } else {
           return response()->json(['Produto esgotado!']);
         }
@@ -104,8 +106,10 @@ class PurchaseController extends Controller
      */
     public function removeProduct(Request $request, $id) {
         $product = Product::findOrFail($id);
+        $purchase = Purchase::findOrFail($id);
         $removed = $product->updateStock(-$request->$quantity);
         $product->purchases()->detach($request->purchase_id);
+        $purchase->total_price -= $product->price * $request->quantity;
     }
 
 }
