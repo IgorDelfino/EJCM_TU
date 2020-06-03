@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Http\Request;
 use App\Purchase;
 
 class User extends Authenticatable
@@ -55,17 +56,15 @@ class User extends Authenticatable
     /*
         Função que cria usuários, recebendo da controller
     */
-    public function createUser($request){
-        
+    public function createUser(Request $request){
         $user = new User;
-
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
 
         $user->save();
 
-        return json($user);
+        return response($user);
     }
     
     /* Relacionando o usuário com as compras*/
