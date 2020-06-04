@@ -13,11 +13,11 @@ describe('LoginComponent', () => {
  
   })
  
-  it('Deve criar um form com 2 controles', () => {
+  it('Deve verificar se contém os itens no form', () => {
  
-  expect(loginComponent.loginForm.contains('password')).toBeTruthy();
-  expect(loginComponent.loginForm.contains('email')).toBeTruthy();
- 
+    expect(loginComponent.loginForm.contains('password')).toBeTruthy();
+    expect(loginComponent.loginForm.contains('email')).toBeTruthy();
+  
   })
 
   it('Deve usar senha com no mínimo 6 dígitos', () => {
@@ -61,3 +61,12 @@ describe('LoginComponent', () => {
 //     expect(component).toBeTruthy();
 //   });
 // })});
+
+
+//------------------------------------------------------------------ DOC
+
+//  const func1 = function(param1){
+//    //se eu colocar um this aqui dentro eu vou estar referenciando esta function
+//  }
+
+//  //quando eu faço this dentro de uma arrow function eu to referenciando o contexto externo (contexto global)
