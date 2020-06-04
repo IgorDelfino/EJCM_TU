@@ -25,9 +25,13 @@ describe('CadastroComponent', () => {
 
     let nameControl = cadastroComponent.registerForm.get('name');
    
-    nameControl.setValue('');
+    nameControl.setValue(''); // dentro das aspas simples tem que ter algo com menos de 3 dígitos
      
     expect(nameControl.valid).toBeFalsy();
+ 
+    // Se rodarmos o teste abaixo, ele vai dar certo
+    // nameControl.setValue('algoComMaisDe3Dígitos');
+    // expect(nameControl.valid).toBeTruthy();
      
     })
 
