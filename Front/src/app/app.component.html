@@ -8,6 +8,12 @@
     font-size: 25px;
     margin-left: 0;
     margin:0;
+    position:absolute;
+    top:0;
+    left:0;
+    right: 0;
+    display:flex;
+    justify-content: space-between;
    }
    .titulo{
     margin:0px;
@@ -26,15 +32,10 @@
 </head>
     
     <body style=" margin-top: 0px; margin-left: 35px; margin-right:0px;">
-        <!-- <header  class="header">       
-            <h1 class="titulo">TU Paper</h1>       
-        </header> -->
-        <div class="content">
-
-<!-- Acrescentei esse router-outlet pra poder rodar o localhost:4200/login e fazer aparecer a pagina de login la, o resto do codigo ta na pasta app-routing.module.ts, na parte onde ta o path-->
-
-            <router-outlet></router-outlet>
-            <!-- <app-produto></app-produto> -->
-        </div>
+        
+        
+             <router-outlet></router-outlet>
+        
+        
     </body>
 </html>

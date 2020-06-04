@@ -1,25 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.header{
+  background-color: #238080;
+  // border-bottom: 2px solid  #238080;
+  color:white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  margin-left: 0;
+  margin:0;
+  position:absolute;
+  top:0;
+  left:0;
+  right: 0;
+  height: 10%;
+  display:flex;
+  justify-content: space-between;
+ }
+ .titulo{
+  margin-left:10px ;
+  // margin-top:-4px;
+  align-self:center;
+ }
+
+ .bttnLoginIcon{
+   display: flex;
+   flex-direction: row-reverse;
+   align-items: center;
+ }
+.buttonLogin{
+  background-color: #238080;
+  color: white;
+  padding: 0px  ;
+  font-size:20px;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-right:50px;
+  cursor: pointer;
+  outline: none;
+  border:none;
+  height: 40px;
+  padding:0px 8px 0px 8px;
+  align-self:center;
+  align-items:center;
+  /* margin-right:5%; */
+ 
+}
+
+.iconLogin{
+  width:20px;
+  align-self:center;
+  
+}
+.img{
+  width:100%;
+  position: absolute;
+  left:0;
+  right:0;
+  top:0;
+  
+}
+
 .column {
     float: left;
-    
+    margin-top:40%;
+  
     // /* padding: 0 5px; */
     padding: 0 15px;
   
   }
-
-  .header{
-    background-color: #238080;
-    font-family: 'Qwigley', cursive;
-    font-size: 25px;
-    margin-left: 0;
-    margin:0;
-   }
-   .titulo{
-    margin:0px;
-   }
-
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+  
   /* Remove extra left and right margins, due to padding */
-  .row {margin: 0 -5px;}
+  .row {margin: 0 -5px;
+    margin-top:45%;
+  }
 
   /* Clear floats after the columns */
   .row:after {
@@ -66,12 +120,11 @@
       cursor: pointer;
       margin-bottom:2%;
       outline: none;
-      
-
-      
-    
+   
   }
-  
+  .card-img-top{
+    border-radius: 10px;
+  }
   
   .card-body{
     margin-left: 6%;
@@ -91,8 +144,8 @@
   .depart{
       font-size:20px;
       font-family: 'Montserrat', sans-serif;
-      margin-bottom:-1%;
-      
+      color:black;
+      margin-bottom: -40%;
       margin-left:-2%;
 
 
