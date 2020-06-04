@@ -1,0 +1,19 @@
+
+<div>
+  <header  class="header">       
+    <h1 class="titulo">TU Paper</h1>       
+</header>
+</div>
+<div class="row" >
+    <p class="depart">Mais vendidos</p>
+    <div class="column" *ngFor="let produto of produtos">
+      <div class="card" style="width: 13rem;">
+        <img class="card-img-top" [src]="[produto.img]" alt="Card image cap" style="width:100%; height: 30%;">
+        <div class="card-body">
+          <p class="card-description">{{produto.descricao}} </p>
+          <p class="card-price" >Preço: {{produto.preco}}</p>
+          <p class="card-storage" >Estoque: {{produto.estoque}}</p> 
+          <button type="button" class="button" (click)="alteraEstoque(produto)">Comprar</button>
+        </div>
+      </div>
+    </div>

@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "TUPaper"
+    }
+  },
+  "defaultProject": "TUPaper",
+  "cli": {
+    "analytics": false
+  }
 }

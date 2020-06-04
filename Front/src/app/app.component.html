@@ -1,15 +1,22 @@
-<style>
+
+<!-- Galera, botei essa parte do style e o h1 com o titulo na pasta produto.component.html, pois se ela ficar aqui vai ficar azul em cima de todas as páginas-->
+
+<!-- <style>
     .header{
     background-color: #238080;
     font-family: 'Qwigley', cursive;
-    font-size: 2em;
+    font-size: 25px;
     margin-left: 0;
-}
-</style>
+    margin:0;
+   }
+   .titulo{
+    margin:0px;
+   }   
+</style> -->
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="margin-top:0px;">
 
 <head>
     <link href = "./app.component.scss" rel="style">
@@ -17,10 +24,17 @@
     <meta charset = "utf-8"/>
     <title>TU Paper</title>
 </head>
+    
+    <body style=" margin-top: 0px; margin-left: 35px; margin-right:0px;">
+        <!-- <header  class="header">       
+            <h1 class="titulo">TU Paper</h1>       
+        </header> -->
+        <div class="content">
 
-<body>
-    <header class="header">
-        <h1>TU Paper</h1>
-    </header>
-</body>
+<!-- Acrescentei esse router-outlet pra poder rodar o localhost:4200/login e fazer aparecer a pagina de login la, o resto do codigo ta na pasta app-routing.module.ts, na parte onde ta o path-->
+
+            <router-outlet></router-outlet>
+            <!-- <app-produto></app-produto> -->
+        </div>
+    </body>
 </html>
