@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use App\User;
 use App\Purchase;
 
-class UserTest extends TestCase
+class UserTestUnit extends TestCase
 {
 
     /**
@@ -28,14 +28,15 @@ class UserTest extends TestCase
         $this->assertTrue($user->userHasName());
     }
 
-    /*
-        Teste da função Add Credits;
-        Exemplo para o assertEquals.
+    /**
+    *    Teste da função Add Credits;
+    *    Exemplo para o assertEquals.
+    *    @dataProvider creditsProvider
     */
-    public function testAddCredits() {
+    public function testAddCredits($credits, $expected) {
         $user = new User();
         $user->credits = 10;
-        $this->assertEquals(30, $user->addCredits(20));
+        $this->assertEquals($expected, $user->addCredits($credits));
     }
 
     /*
@@ -68,25 +69,17 @@ class UserTest extends TestCase
     }
     */
 
-    
-    /*  
-
-        public function testCreateUser(){
-        $data = ['name' => 'igor',
-                'email' => 'igor@igor.com',
-                'password' => '123456',
-                'credits' => 500];
-
-        $user = User::createUser($data);
-
-        $this->assertInstanceOf(User::class, $user);
-
-        $this->assertEquals($data['name'],$user->name);
-        $this->assertEquals($data['email'],$user->email);
-        $this->assertEquals($data['password'],$user->password);
-        $this->assertEquals($data['credits'],$user->credits);
-
+    public function creditsProvider()
+    {
+        return [
+            [20,30],
+            [450,460],
+            [350,360],
+            [360,370]
+        ];
     }
-    */
+
+    
+    
 
 }
