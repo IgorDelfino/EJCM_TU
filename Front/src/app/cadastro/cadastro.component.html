@@ -8,15 +8,15 @@
                 <p class="crieConta">Crie Sua Conta TU</p>
                 <div class='name'>
                     <img src="../../assets/icons/user.png" class="icon">
-                    <input type="text" placeholder="nome de usuário" style="text-align: center" formControlName="name" >
+                    <input [class.invalid]="registerForm.controls.name.invalid && registerForm.controls.name.dirty" type="text" placeholder="nome de usuário" style="text-align: center" formControlName="name" >
                 </div>
                 <div class="email">
                     <img src="../../assets/icons/mail.png" class="icon">
-                    <input type="email" placeholder="email" style="text-align: center" formControlName="email">
+                    <input [class.invalid]="registerForm.controls.email.invalid && registerForm.controls.email.dirty" type="email" placeholder="email" style="text-align: center" formControlName="email">
                 </div>  
                 <div class="senha">
                     <img src="../../assets/icons/key.png" class="icon">
-                    <input type="password" placeholder="senha" style="text-align: center" formControlName="password">
+                    <input [class.invalid]="registerForm.controls.password.invalid && registerForm.controls.password.dirty" type="password" placeholder="senha" style="text-align: center" formControlName="password">
                 </div> 
                 <button type="submit" class="bttn"  style="text-align: center; align-self:center">Criar Conta</button>
             </form>

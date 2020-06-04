@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Qwigley&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+.invalid{
+    border-color: red;
+    border-style: solid;
+}
+
 .content{
     display:flex;
     justify-content:space-evenly;
