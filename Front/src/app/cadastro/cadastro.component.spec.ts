@@ -31,11 +31,11 @@ describe('CadastroComponent', () => {
      
     })
 
-  it('should use password with minimum 8 characters', () => {
+  it('should use password with minimum 6 characters', () => {
 
     let passwordControl = cadastroComponent.registerForm.get('password');
        
-    passwordControl.setValue('12345678')
+    passwordControl.setValue('123456')
        
     expect(passwordControl.valid).toBeTruthy();
        
@@ -45,7 +45,7 @@ describe('CadastroComponent', () => {
        
     let emailControl = cadastroComponent.registerForm.get('email');
        
-    emailControl.setValue('dinanathj@gmail.com')
+    emailControl.setValue('tef@tef.com')
        
     expect(emailControl.valid).toBeTruthy();
        
