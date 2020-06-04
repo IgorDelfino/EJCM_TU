@@ -40,15 +40,17 @@ class UserTest extends TestCase
 
     /*
         Testando que a cada compra finalizada um novo carrinho é iniciado!
-    
-    public function testNewPurchaseInitAfterBuy() {
-        $user = $this->createMock(User::class);
-        $user->credits = 38;
-        $purchase = new Purchase();
-        $purchase->total_price = 32;
-        $user->expects($this->once())->method('beginPurchase');
-        $user->finishPurchase($purchase);
-    }*/
+        Gancho para falar do Mock.
+    */
+    public function testUserDontHaveEnoughCredits() {
+        $user = new User();
+        $user->credits = 40;
+        $purchase = $this->createStub(Purchase::class);
+        
+        $purchase->method('getTotalPrice')->willReturn(50);
+
+        $this->assertFalse($user->finishPurchase($purchase));
+    }
 
 
     /*  Pode ser abordado como feature test depois
