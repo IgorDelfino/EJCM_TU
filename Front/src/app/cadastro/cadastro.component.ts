@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-cadastro',
@@ -10,7 +11,7 @@ export class CadastroComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor(public formbuilder: FormBuilder) {
+  constructor(public formbuilder: FormBuilder, private router: Router) {
 
     this.registerForm = this.formbuilder.group({
       name: [null, [Validators.required, Validators.minLength(3)]],
