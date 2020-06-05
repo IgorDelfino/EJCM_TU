@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit {
   }
  
   submitForm(form) {
+    localStorage['token'] = 'xptoh26410x5=50';
+    this.router.navigate(['']);
     console.log(form);
     console.log(form.value);
   }

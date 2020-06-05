@@ -7,6 +7,9 @@ import { ProdutoComponent } from './produto/produto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { LoginService } from '../app/login/login-service/login.service';
+import { AuthGuard } from './services/auth/auth.guard';
+
 
 
 @NgModule({
@@ -22,7 +25,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [LoginService, AuthGuard],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
