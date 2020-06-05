@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProdutoComponent />  #render should generate snapshot for ProdutoComponent 1`] = `undefined`;

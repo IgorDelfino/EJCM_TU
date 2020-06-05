@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto } from '../service/produto';
+import { Router } from '@angular/router';
 // import { ProdutoService } from '../service/produto.service';
 
 @Component({
@@ -10,7 +11,9 @@ import { Produto } from '../service/produto';
 export class ProdutoComponent implements OnInit {
    Produtos:Produto[];
    produtos;
-  constructor() { }
+   toggleCompra = true;
+   
+  constructor(public router :Router) { }
 
   ngOnInit(): void {
     this.produtos =[
@@ -28,7 +31,7 @@ export class ProdutoComponent implements OnInit {
         estoque: 20
       },
       {
-        descricao:"Canetinha Hidrográfica 24 Cores Faber Castell 1UN ",
+        descricao:" Estojo de Canetinha Hidrográfica 24 Cores Faber Castell 1UN ",
         preco:13,
         img:"../../assets/produtos/canetinha.jpg",
         estoque: 30
@@ -57,14 +60,19 @@ export class ProdutoComponent implements OnInit {
        return;
     }
 
-  // mudaPreco(produto){
-  //     console.log(produto.preco)
-  //     if ((produto.preco >= 20)){
-  //        produto.preco ++;
-  //        console.log(produto.preco)
-  //        return;
-  //     }
-     
+    casaFunction (items, callback) {
+      for (let index = 0; index < items.length; index++) {
+        callback(items[index]);
+      }
+    }
+
+    toggle () {
+      this.toggleCompra = !this.toggleCompra
+    }
+   
+  vaiParaLogin(){
+    this.router.navigate(['/login'])
+  }
 }
 
 
