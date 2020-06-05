@@ -53,6 +53,34 @@ class UserTestUnit extends TestCase
         $this->assertFalse($user->finishPurchase($purchase));
     }
 
+    /* 
+        Teste de exemplo Mock
+    */
+    public function testUserHasEnoughCredits() {
+        $user = $this->getMockBuilder(User::class)->setMethods(['beginPurchase'])->getMock(); //Estou mockando apenas o beginPurchase
+        $user->credits = 55;
+        $purchase = $this->createStub(Purchase::class);
+        $purchase->method('getTotalPrice')->willReturn(50);
+        
+        $user->expects($this->once())->method('beginPurchase');
+
+        $bought = $user->finishPurchase($purchase);
+
+        $this->assertEquals(5,$user->credits);
+    }
+
+    /*
+        Outro exemplo de Mock
+    
+    public function testBeginPurchase() {
+        $user = new User();
+        $user->id = 3;
+
+        $purchase = $this->getMockBuilder(Purchase::class)->setMethods(['createPurchase'])->getMock();
+        $purchase->expects($this->once())->method('createPurchase')->with($user->id);
+        $user->beginPurchase();
+    }*/
+
 
     /*  Pode ser abordado como feature test depois
         Teste das relações de usuário

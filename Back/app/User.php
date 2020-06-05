@@ -85,10 +85,11 @@ class User extends Authenticatable
     /* Usuário finaliza a compra de um carrinho de produtos */
     public function finishPurchase($purchase) {
         //$purchase = Purchase::findOrFail($id);//
-        if ($purchase->getTotalPrice() > $this->credits) {
+        $price = $purchase->getTotalPrice();
+        if ($price > $this->credits) {
             return false;
         } 
-        $this->credits -= $purchase->total_price;
+        $this->credits -= $price;
         $this->beginPurchase();
         return true;
     }

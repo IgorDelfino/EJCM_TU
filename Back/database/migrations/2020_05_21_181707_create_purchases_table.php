@@ -15,8 +15,8 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
-            $table->string('date');
-            $table->float('total_price');
+            $table->string('date')->nullable();
+            $table->float('total_price')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
