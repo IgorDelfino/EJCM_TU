@@ -8,11 +8,15 @@ import { Produto } from '../service/produto';
   styleUrls: ['./produto.component.scss']
 })
 export class ProdutoComponent implements OnInit {
-   Produtos:Produto[];
+  //  Produtos:Produto[];
    produtos;
-  constructor() { }
+   toggleCompra = true
+   a=1;
+   b:number=2;
+  constructor() { 
+    // module.exports=this.somaItemsEstoque(this.produtos);
 
-  ngOnInit(): void {
+     
     this.produtos =[
       {
         descricao:"Bloco Adesivo Post-It® Rosa - 76 Mm X 76 Mm 1UN",
@@ -47,25 +51,33 @@ export class ProdutoComponent implements OnInit {
         estoque: 30
       }
     ]
+    module.exports=this.alteraEstoque(this.produtos);
+    module.exports=this.Sum(this.a,this.b);
+  }
+
+  ngOnInit(): void {
     
   }
    
-  alteraEstoque(produto){
-    console.log(produto.estoque)
-       produto.estoque --;
-       console.log(produto.estoque)
-       return;
+   alteraEstoque(produto){
+       produto.estoque --
     }
 
-  // mudaPreco(produto){
-  //     console.log(produto.preco)
-  //     if ((produto.preco >= 20)){
-  //        produto.preco ++;
-  //        console.log(produto.preco)
-  //        return;
-  //     }
-     
+    Sum (a, b){
+      return a + b;
+    }
+
+    casaFunction (items, callback) {
+      for (let index = 0; index < items.length; index++) {
+        callback(items[index]);
+      }
+    }
+
+    toggle () {
+      this.toggleCompra = !this.toggleCompra
+    }
 }
+
 
 
 // quando fazemos uma função no component.ts, precisamos mudar no html e no produto.ts e também no component.spec.ts

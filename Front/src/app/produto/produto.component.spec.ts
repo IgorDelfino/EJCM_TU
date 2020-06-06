@@ -1,34 +1,32 @@
+  
 import { async, ComponentFixture } from '@angular/core/testing';
 import { ConfigureFn, configureTests } from 'src/test-config.helper'
-import {Produto} from '../service/produto';
+import { NO_ERRORS_SCHEMA, ɵivyEnabled as ivyEnabled, Component } from '@angular/core';
 import { ProdutoComponent } from './produto.component';
-import { NO_ERRORS_SCHEMA, ɵivyEnabled as ivyEnabled } from '@angular/core';
 
 
-//função alteraEstoque mockada
-const mockedAlteraEstoque = jest.fn();
-
-const Produtos: Produto[] = [
-  {
-    descricao:"Bloco Adesivo",
-    preco:22,
-    img:'../../assets/produtos/post-it.jpg',
-    estoque: 40
-      
+const mockCallback = jest.fn(items => 42 + items);
+const mockProduto = [
+  { 
+    descricao:"Bloco Adesivo Post-It® Rosa - 76 Mm X 76 Mm 1UN",
+    preco: 21,
+    img:'imagem.png',
+    estoque: 30
   },
-  {
-    descricao:"Fichário",
-    preco:23,
-    img:'../../assets/produtos/post-it.jpg',
-    estoque: 25
-  }
+  { 
+    descricao:"Bloco Adesivo Post-It® Rosa - 76 Mm X 76 Mm 1UN",
+    preco: 21,
+    img:'imagem.png',
+    estoque: 33
+    }
+  ]
 
-];
 
-describe('mock simples', () => {
+
+describe('<ProdutoComponent /> ', () => {
   let component: ProdutoComponent;
   let fixture: ComponentFixture<ProdutoComponent>;
-  
+
   beforeEach(async(() => {
     const configure: ConfigureFn = testBed => {
       testBed.configureTestingModule({
@@ -43,35 +41,66 @@ describe('mock simples', () => {
       fixture.detectChanges();
     });
   }));
+  
+  describe('#render', () => {
+    it('should create the component ProdutoComponent', async(() => {
+      const produto = component;
+      expect(produto).toBeTruthy();   
+      }));
+    it('should generate snapshot for ProdutoComponent', () => {
+      expect(fixture).toMatchSnapshot();
+    });
+  })
 
-  // it('Ivy should be enabled', () => {
-  //        expect(ivyEnabled).toBeTruthy();   });
+  describe('#alteraEstoque', () => {
 
-// espera-se que ele renderize o componente do produto
-  it('should create the component produto', async(() => {
-         const produto = component;
-        expect(produto).toBeTruthy();   
-  }));
+    it('function was called', () => {
+      expect(component.alteraEstoque).toBeCalled
+    })
+
+    it('shoud altered stock', () => {
+      expect(mockProduto[0].estoque).toBe(30)
+      component.alteraEstoque(mockProduto[0])
+      expect(mockProduto[0].estoque).toBe(29)
+    })
+  })
+
+  describe('#function Casa', () => {
+    beforeEach( () => {
+      component.casaFunction([0, 1], mockCallback);
+      })
+
+    it('the mock function is called twice', () => {
+      expect(mockCallback.mock.calls.length).toBe(2);
+    })
+
+    it('the firt argument of the secont call to the function was 1', () => {
+      expect(mockCallback.mock.calls[1][0]).toBe(1)
+    })
+
+    it('the first argument of the first call to the function was 0', () => {
+      expect(mockCallback.mock.calls[0][0]).toBe(0)
+    })
+
+    it('the return value of the first call the the function was 42', () => {
+      expect(mockCallback.mock.results[0].value).toBe(42)
+    })
+  })
+
+  describe('#toggle', () => {
+    it('shoud change status', () => {
+      expect(component.toggleCompra).toBeTruthy
+      component.toggle()
+      expect(component.toggleCompra).toBeFalsy
+    })
+  })
+
+  describe('#soma', () => {
+    it('shoud add 1 + 2 ', () => {
+      expect(component.Sum(1,2)).toBe(3)
+    })
+  })
+
 })
 
     
-    // beforeEach(async(() => {
-  //   TestBed.configureTestingModule({
-  //     declarations: [ ProdutoComponent ]
-  //   })
-  //   .compileComponents();
-  // }));
-
-// beforeEach(() => {
-//     fixture = TestBed.createComponent(ProdutoComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-   
-  // afterEach(() => {
-  //   component=null;
-  // });
-  
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
