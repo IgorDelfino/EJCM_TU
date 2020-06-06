@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(public formbuilder: FormBuilder) {
+  
+  
 
     this.loginForm = this.formbuilder.group({
       email: [null, [Validators.required, Validators.email]],
@@ -22,9 +24,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
  
+
+
   submitForm(form) {
-    localStorage['token'] = 'xptoh26410x5=50';
     console.log(form);
     console.log(form.value);
+    // this.router.navigate(['/login']);
   }
 }
