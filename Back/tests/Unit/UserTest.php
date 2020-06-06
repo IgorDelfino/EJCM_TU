@@ -67,6 +67,9 @@ class UserTestUnit extends TestCase
     }
     */
 
+    /**
+     * data provider para a função de teste testAddCredits()
+     */
     public function creditsProvider()
     {
         return [
@@ -76,7 +79,54 @@ class UserTestUnit extends TestCase
             [360,370]
         ];
     }
+    /**
+     * teste incompleto feito para ser usado como exemplo
+     * @test
+     */
+    public function incompleteTest()
+    {   
+        $this->assertEquals(2, 1+1); //essa assertion deve ser feita mesmo com o teste incompleto
 
+        $this->assertEquals(24, 12+12);
+
+        $this->markTestIncomplete('
+        mensagem desejada para indicar teste incompleto
+        ');
+    }
+
+    /**
+     * teste pulado
+     * @test 
+     */
+    public function skippedTest()
+    {
+
+        $this->assertTrue(true);
+
+        if(true)
+        {
+            $this->markTestSkipped('teste que deve ser pulado');
+        }  
+    }
+
+    /**
+     * teste 1(dependencies)
+     * criado para falhar
+     * @test
+     */
+    public function testeDependencies1(){
+        $this->assertTrue(false);
+    }
+
+    /**
+     * teste 2(dependencies)
+     * nao deve ser executado, visto que o teste 1 vai sempre falhar
+     * @test
+     * @depends testeDependencies1
+     */
+    public function testDependencies2(){
+        $this->assertTrue(true);
+    }
     
     
 

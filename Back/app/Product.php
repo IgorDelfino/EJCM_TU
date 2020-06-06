@@ -12,7 +12,9 @@ class Product extends Model
         return $this->belongsToMany('App\Purchase', 'carts')->withPivot('quantity');
     }
 
-    /* Função que atualiza o estoque de produtos */
+    /**
+     *  Função que atualiza o estoque de produtos 
+     **/
     public function updateStock($quantity) {
         if ($quantity > $this->stock) {
             return false;
