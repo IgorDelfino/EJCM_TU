@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Produto } from '../service/produto';
-// import { ProdutoService } from '../service/produto.service';
+
 
 @Component({
   selector: 'app-produto',
@@ -51,8 +50,8 @@ export class ProdutoComponent implements OnInit {
         estoque: 30
       }
     ]
-    module.exports=this.alteraEstoque(this.produtos);
-    module.exports=this.Sum(this.a,this.b);
+    // module.exports=this.alteraEstoque(this.produtos);
+    // module.exports=this.Sum(this.a,this.b);
   }
 
   ngOnInit(): void {
