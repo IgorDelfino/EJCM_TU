@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cadastro',
@@ -11,7 +11,7 @@ export class CadastroComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor(public formbuilder: FormBuilder, public router:Router) {
+  constructor(public formbuilder: FormBuilder) {
 
     this.registerForm = this.formbuilder.group({
       name: [null, [Validators.required, Validators.minLength(3)]],
@@ -28,7 +28,5 @@ export class CadastroComponent implements OnInit {
     console.log(form.value);
   }
 
-  vaiParaLogin(){
-    this.router.navigate(['/login'])
-  }
+  
 }

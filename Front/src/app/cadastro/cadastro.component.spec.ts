@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from "@angular/forms";
-
+import { Router } from "@angular/router";
 import { CadastroComponent } from './cadastro.component';
 
 describe('CadastroComponent', () => { 

@@ -13,7 +13,9 @@ export class ProdutoComponent implements OnInit {
    produtos;
    toggleCompra = true;
    
-  constructor(public router :Router) { }
+  constructor(public router :Router) { 
+    
+  }
 
   ngOnInit(): void {
     this.produtos =[
@@ -65,9 +67,13 @@ export class ProdutoComponent implements OnInit {
         callback(items[index]);
       }
     }
+    
+    Sum (a, b){
+      return a + b;
+    }
 
     toggle () {
-      this.toggleCompra = !this.toggleCompra
+      this.toggleCompra = !this.toggleCompra;
     }
    
   vaiParaLogin(){
