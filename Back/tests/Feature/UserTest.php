@@ -42,7 +42,7 @@ class UserTestFeature extends testCase{
 
         $response->assertStatus(200);
 
-        
+
     }
 
     /**
@@ -63,7 +63,7 @@ class UserTestFeature extends testCase{
         $this->assertCount(1, User::all());
     }
 
-    /**public function testRegisterUser(){
+    public function testRegisterUser(){
         $this->withoutExceptionHandling();
 
         $data = [
@@ -79,9 +79,9 @@ class UserTestFeature extends testCase{
 
         $this->assertCount(1, User::all());
 
-    }*/
+    }
 
-    /**public function testLoginUser(){
+    public function testLoginUser(){
         $logindata = [
             'email' => 'tef@tef.com',
             'password' => '123456'
@@ -99,7 +99,7 @@ class UserTestFeature extends testCase{
 
         $this->post('api/login',$logindata)->assertStatus(200);
         
-    }*/
+    }
 
     public function testDeleteUser(){
         
@@ -132,7 +132,7 @@ class UserTestFeature extends testCase{
             'password' => '123456',
         ]; 
 
-        $this->withoutExceptionHandling();
+        //$this->withoutExceptionHandling();
 
         $this->post('api/user', $data);
 
@@ -147,15 +147,13 @@ class UserTestFeature extends testCase{
 
         $response = $this->put('api/user/'.$user->id.'/', $data);
 
-        $user = User::first();
+        $this->assertEquals('igor', $user->fresh()->name);
 
-        $this->assertEquals('igor', $user->name);
+        $this->assertEquals('igor@igor.com', $user->fresh()->email);
 
-        $this->assertEquals('igor@igor.com', $user->email);
+        $this->assertEquals('12345654321', $user->fresh()->password);
 
-        $this->assertEquals('12345654321', $user->password);
-
-        $this->assertEquals(700, $user->credits);
+        $this->assertEquals(700, $user->fresh()->credits);
 
         
     }   
