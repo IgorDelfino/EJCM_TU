@@ -25,7 +25,7 @@ describe('LoginComponent', () => {
 
     let passwordControl = loginComponent.loginForm.get('password');
    
-    passwordControl.setValue('123456')
+    passwordControl.setValue('123456');
    
     expect(passwordControl.valid).toBeTruthy();
    
@@ -35,10 +35,11 @@ describe('LoginComponent', () => {
 
     let emailControl = loginComponent.loginForm.get('email');
    
-    emailControl.setValue('tef@tef')
+    emailControl.setValue('teste@email.com');
    
     expect(emailControl.valid).toBeTruthy();
-  })});
+  })
+});
 
 
 // describe('LoginComponent', () => {
