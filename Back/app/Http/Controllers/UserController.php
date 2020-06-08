@@ -38,7 +38,7 @@ class UserController extends Controller
     
     $user->createUser($request);
       
-      return response()->json([$user]);
+      return response()->json(['user' => $user]);
   }
 
   /**

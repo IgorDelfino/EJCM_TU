@@ -21,11 +21,9 @@ class PassportController extends Controller
         $token = $user->createToken('MyApp')->accessToken;
         $name = $user->name;
         return response()->json([
-          "message" => "login realizado com sucesso!",
-          "data" => [
-            'user' => $user,
-            'token' => $token
-            ]
+          "message" => "foi",
+          "user" => $user,
+          "token" => $token
           ], 200);
       }
       else{
@@ -42,7 +40,7 @@ class PassportController extends Controller
     public function getDetails()//works
     {
       $user = Auth::user();
-      return response()->json(['success' => $user], 200);
+      return response()->json(['user' => $user], 200);
     }
 
     public function register(RegisterRequest $request)//works
@@ -50,7 +48,6 @@ class PassportController extends Controller
         $user = new User;
         $user->name = $request->name;
         $user->password = bcrypt($request->password);
-        //$user->confirmPassword = $request->confirmPassword;
         $user->email = $request->email;
         $user->save();
 
@@ -66,6 +63,6 @@ class PassportController extends Controller
         $accessToken = Auth::user()->token();
         DB::table('oauth_refresh_tokens')->where('access_token_id', $accessToken->id)->update(['revoked' => true]);
         $accessToken->revoke();
-        return response()->json(null, 204);
+        return response()->json(['message'=>'realizado'],200);
     }
 }
