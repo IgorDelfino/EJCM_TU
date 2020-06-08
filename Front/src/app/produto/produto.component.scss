@@ -65,15 +65,17 @@
 .column {
     float: left;
     margin-top:40%;
-  
+   
     // /* padding: 0 5px; */
     padding: 0 15px;
   
   }
   
   /* Remove extra left and right margins, due to padding */
-  .row {margin: 0 -5px;
+  .row {
+    margin: 0 -5px;
     margin-top:45%;
+    margin-left:-5px;
   }
 
   /* Clear floats after the columns */
@@ -93,6 +95,10 @@
       justify-content: space-around;
       
     }
+  }
+  .icon{
+    margin-top:10px;
+    align-items:center;
   }
   .card {
 /* Add shadows to create the "card" effect */
@@ -143,11 +149,11 @@
       font-family: 'Montserrat', sans-serif;
   }
   .depart{
-      font-size:20px;
+      font-size:27px;
       font-family: 'Montserrat', sans-serif;
       color:black;
-      margin-bottom: -40%;
-      margin-left:-2%;
+      margin-bottom: -39%;
+      margin-left:2%;
 
 
   }
