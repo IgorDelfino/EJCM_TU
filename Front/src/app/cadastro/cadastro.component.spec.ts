@@ -1,6 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from "@angular/forms";
-import { Router } from "@angular/router";
 import { CadastroComponent } from './cadastro.component';
 
 describe('CadastroComponent', () => { 
@@ -16,26 +14,26 @@ describe('CadastroComponent', () => {
   it('Deve verificar se contém os itens no form', () => {
 
     expect(cadastroComponent.registerForm.contains('name')).toBe(true);
-    expect(cadastroComponent.registerForm.contains('password')).toBeTruthy();
-    expect(cadastroComponent.registerForm.contains('email')).toBeTruthy();
+    expect(cadastroComponent.registerForm.contains('password')).toBe(true);
+    expect(cadastroComponent.registerForm.contains('email')).toBe(true);
    
     })
 
-  it('should make the name control required', () => {
+  it('Deve verificar se o nome está no formato correto', () => {
 
     let nameControl = cadastroComponent.registerForm.get('name');
    
-    nameControl.setValue(''); // dentro das aspas simples tem que ter algo com menos de 3 dígitos
+    nameControl.setValue('oi'); // dentro das aspas simples tem que ter algo com mais de 3 dígitos
      
-    expect(nameControl.valid).toBeFalsy();
+    expect(nameControl.valid).toBeTruthy();
  
-    // Se rodarmos o teste abaixo, ele vai dar certo
-    // nameControl.setValue('algoComMaisDe3Dígitos');
-    // expect(nameControl.valid).toBeTruthy();
+    // Se rodarmos o teste abaixo, ele vai dar errado:
+    // nameControl.setValue('algoComMenosDe3Dígitos');
+    // expect(nameControl.valid).toBeFalsy();
      
     })
 
-  it('should use password with minimum 6 characters', () => {
+  it('Deve usar senha com no mínimo 6 dígitos', () => {
 
     let passwordControl = cadastroComponent.registerForm.get('password');
        
@@ -45,7 +43,7 @@ describe('CadastroComponent', () => {
        
     })
        
-  it('should validate the email input type', () => {
+  it('Deve validar o formato de email', () => {
        
     let emailControl = cadastroComponent.registerForm.get('email');
        
@@ -53,6 +51,5 @@ describe('CadastroComponent', () => {
        
     expect(emailControl.valid).toBeTruthy();
        
-})});
-       
-   
+})
+});

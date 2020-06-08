@@ -1,17 +1,17 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LoginComponent } from './login.component';
 import { FormBuilder } from "@angular/forms";
+
 
 describe('LoginComponent', () => { 
 
   let loginComponent: LoginComponent;
  
   beforeEach(() => {
- 
+
   loginComponent = new LoginComponent(new FormBuilder);
  
   })
+
  
   it('Deve verificar se contém os itens no form', () => {
  
@@ -24,7 +24,7 @@ describe('LoginComponent', () => {
 
     let passwordControl = loginComponent.loginForm.get('password');
    
-    passwordControl.setValue('123456')
+    passwordControl.setValue('123456');
    
     expect(passwordControl.valid).toBeTruthy();
    
@@ -34,10 +34,11 @@ describe('LoginComponent', () => {
 
     let emailControl = loginComponent.loginForm.get('email');
    
-    emailControl.setValue('tef@tef')
+    emailControl.setValue('teste@email.com');
    
     expect(emailControl.valid).toBeTruthy();
-  })});
+  })
+});
 
 
 
@@ -48,3 +49,4 @@ describe('LoginComponent', () => {
 //  }
 
 //  //quando eu faço this dentro de uma arrow function eu to referenciando o contexto externo (contexto global)
+
