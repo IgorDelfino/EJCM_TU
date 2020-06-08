@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
@@ -26,4 +27,6 @@ export class CadastroComponent implements OnInit {
     console.log(form);
     console.log(form.value);
   }
+
+  
 }

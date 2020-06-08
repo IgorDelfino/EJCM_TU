@@ -9,17 +9,6 @@
                 <p class="crieConta">Crie Sua Conta TU</p>
                 <div class='name'>
                     <img src="../../assets/icons/user.png" class="icon">
-<<<<<<< HEAD
-                    <input type="text" placeholder="nome de usuário" style="text-align: center" formControlName="name" required=true >
-                </div>
-                <div class="email">
-                    <img src="../../assets/icons/mail.png" class="icon">
-                    <input type="email" placeholder="email" style="text-align: center" formControlName="email" required=true>
-                </div>  
-                <div class="senha">
-                    <img src="../../assets/icons/key.png" class="icon">
-                    <input type="password" placeholder="senha" style="text-align: center" formControlName="password" required=true> 
-=======
                     <input [class.invalid]="registerForm.controls.name.invalid && registerForm.controls.name.dirty" type="text" placeholder="nome de usuário" style="text-align: center" formControlName="name" >
                 </div>
                 <div class="email">
@@ -29,12 +18,11 @@
                 <div class="senha">
                     <img src="../../assets/icons/key.png" class="icon">
                     <input [class.invalid]="registerForm.controls.password.invalid && registerForm.controls.password.dirty" type="password" placeholder="senha" style="text-align: center" formControlName="password">
->>>>>>> ebf324d6655b3832467c9036f8df81c796a6d84a
                 </div> 
                 <button type="submit" class="bttn"  style="text-align: center; align-self:center">Criar Conta</button>
             </form>
         </div>
         <label class="vaiParaLogin">Já Possui? Faça Seu Login!</label>
-        <button type='button' class="bttn2">Fazer Login</button>
+        <button type='button' class="bttn2" routerLink='/login'>Fazer Login</button>
     </div>
 </div>

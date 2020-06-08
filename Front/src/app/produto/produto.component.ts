@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-produto',
@@ -7,13 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./produto.component.scss']
 })
 export class ProdutoComponent implements OnInit {
-  //  Produtos:Produto[];
+
    produtos;
    toggleCompra = true
    a=1;
    b:number=2;
-  constructor() { 
-    // module.exports=this.somaItemsEstoque(this.produtos);
+  constructor(public router :Router) { 
 
      
     this.produtos =[
@@ -31,7 +30,7 @@ export class ProdutoComponent implements OnInit {
         estoque: 20
       },
       {
-        descricao:"Canetinha Hidrográfica 24 Cores Faber Castell 1UN ",
+        descricao:" Estojo de Canetinha Hidrográfica 24 Cores Faber Castell 1UN ",
         preco:13,
         img:"../../assets/produtos/canetinha.jpg",
         estoque: 30
@@ -62,19 +61,23 @@ export class ProdutoComponent implements OnInit {
        produto.estoque --
     }
 
-    Sum (a, b){
-      return a + b;
-    }
-
     casaFunction (items, callback) {
       for (let index = 0; index < items.length; index++) {
         callback(items[index]);
       }
     }
+    
+    Sum (a, b){
+      return a + b;
+    }
 
     toggle () {
-      this.toggleCompra = !this.toggleCompra
+      this.toggleCompra = !this.toggleCompra;
     }
+   
+  vaiParaLogin(){
+    this.router.navigate(['/login'])
+  }
 }
 
 

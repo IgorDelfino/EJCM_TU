@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from "@angular/forms";
-
+import { Router } from "@angular/router";
 import { CadastroComponent } from './cadastro.component';
 
 describe('CadastroComponent', () => { 
@@ -12,32 +12,6 @@ describe('CadastroComponent', () => {
     cadastroComponent = new CadastroComponent(new FormBuilder);
  
   })
-
-  // it('Component successfully created', () => {
-  //   expect(cadastroComponent).toBeTruthy();
-  // })
-
-  // it('form invalid when empty', () => {
-  //   expect(cadastroComponent.registerForm.valid).toBeFalsy();
-  // })
-
-  // it('email field validity', () => {
-  //   let email = cadastroComponent.registerForm.controls['email'];
-  //   expect(email.valid).toBeFalsy();
-
-  //   let errors = {};
-  //   errors = email.errors || {};
-  //   expect(errors['required']).toBeTruthy();
-
-  //   email.setValue("test");
-  //   errors = email.errors || {};
-  //   expect(errors['pattern']).toBeTruthy();
-  // })
-
-  // it('component initial state', () => {
-  //   expect(cadastroComponent.registerForm).toBeDefined();
-  //   expect(cadastroComponent.registerForm.invalid).toBeTruthy();
-  // });
 
   it('Deve verificar se contém os itens no form', () => {
 
