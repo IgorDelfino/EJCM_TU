@@ -13,6 +13,7 @@ describe('LoginComponent', () => {
   loginComponent = new LoginComponent(new FormBuilder);
  
   })
+
  
   it('Deve verificar se contém os itens no form', () => {
  
@@ -72,3 +73,4 @@ describe('LoginComponent', () => {
 //  }
 
 //  //quando eu faço this dentro de uma arrow function eu to referenciando o contexto externo (contexto global)
+
