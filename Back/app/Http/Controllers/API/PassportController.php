@@ -21,7 +21,7 @@ class PassportController extends Controller
         $token = $user->createToken('MyApp')->accessToken;
         $name = $user->name;
         return response()->json([
-          "message" => "foi",
+          "message" => "login realizado!",
           "user" => $user,
           "token" => $token
           ], 200);
@@ -43,7 +43,7 @@ class PassportController extends Controller
       return response()->json(['user' => $user], 200);
     }
 
-    public function register(RegisterRequest $request)//works
+    public function register(RegisterRequest $request)
     {
         $user = new User;
         $user->name = $request->name;
@@ -51,10 +51,13 @@ class PassportController extends Controller
         $user->email = $request->email;
         $user->save();
 
-        $success['token'] = $user->createToken('MyApp') -> accessToken;
-        $success['name'] = $user->name;
+        $token = $user->createToken('MyApp') -> accessToken;
+        $name = $user->name;
 
-        return response() -> json(['success' => $success], 200);
+        return response() -> json([
+          'token' => $token,
+          'name' => $name
+        ], 200);
 
     }
 
@@ -63,6 +66,6 @@ class PassportController extends Controller
         $accessToken = Auth::user()->token();
         DB::table('oauth_refresh_tokens')->where('access_token_id', $accessToken->id)->update(['revoked' => true]);
         $accessToken->revoke();
-        return response()->json(['message'=>'realizado'],200);
+        return response()->json(['message'=>'logout realizado!'],200);
     }
 }

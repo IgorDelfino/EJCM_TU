@@ -36,9 +36,13 @@ class UserTestFeature extends testCase{
 
         $this->post('api/user', $data);
 
-        $user = User::first();
+        $user = User::findOrFail(1);
 
         $response = $this->get('api/user/'.$user->id);
+
+        $gottenUser = $response->json('user');//aqui recebemos um array com as informações do usuario que recebemos no get
+
+        $this->assertContains('user', $gottenUser);//aqui comparamos se o array possui a informação que desejamos
 
         $response->assertStatus(200);
 
@@ -47,6 +51,8 @@ class UserTestFeature extends testCase{
 
     /**
      * test for post 
+     * nesse teste checamos se utilizarmos a rota api/user com o metodo post() conseguimos
+     * adicionar o usuario descrito por $data ao banco de dados
      */
     public function testPostUser(){
         $data = [
@@ -63,6 +69,9 @@ class UserTestFeature extends testCase{
         $this->assertCount(1, User::all());
     }
 
+    /**
+     * test register a new user in the database
+     */
     public function testRegisterUser(){
         //$this->withoutExceptionHandling();
 
@@ -81,17 +90,20 @@ class UserTestFeature extends testCase{
         $this->assertCount(1, User::all());
 
     }
-
+    
+    /**
+     * test login
+     */
     public function testLoginUser(){
-        $logindata = [
-            'email' => 'user@user.com',
-            'password' => '123456'
-        ];
         $data = [
             'name' =>  'user',
             'email' => 'user@user.com',
             'password' => '123456',
             'credits' => 500,
+        ];
+        $logindata = [
+            'email' => 'user@user.com',
+            'password' => '123456'
         ];
 
         $this->withoutExceptionHandling();
@@ -103,17 +115,18 @@ class UserTestFeature extends testCase{
         $response = $this->post('api/login',$logindata);
 
         $response->AssertJson([
-            'message' => 'foi',
+            'message' => 'login realizado!',
         ]);
         
         $response->assertJsonCount(3, $key=null);
-
-        $token = $response->json('token');
 
         $response->assertStatus(200);
         
     }
 
+    /**
+     * test for delete
+     */
     public function testDeleteUser(){
         
         //$this->withoutExceptionHandling();
@@ -138,6 +151,9 @@ class UserTestFeature extends testCase{
 
     }
 
+    /**
+     * test for put
+     */
     public function testUpdateUser(){
         $data = [
             'name' =>  'user',
@@ -151,18 +167,18 @@ class UserTestFeature extends testCase{
 
         $user = User::first();
 
-        $data = [
-            'name' =>  'igor',
-            'email' => 'igor@igor.com',
+        $modifiedData = [
+            'name' =>  'nome',
+            'email' => 'nome@nome.com',
             'password' => '12345654321',
             'credits' => 700,
         ];
 
-        $response = $this->put('api/user/'.$user->id.'/', $data);
+        $response = $this->put('api/user/'.$user->id.'/', $modifiedData);
 
-        $this->assertEquals('igor', $user->fresh()->name);
+        $this->assertEquals('nome', $user->fresh()->name);
 
-        $this->assertEquals('igor@igor.com', $user->fresh()->email);
+        $this->assertEquals('nome@nome.com', $user->fresh()->email);
 
         $this->assertEquals('12345654321', $user->fresh()->password);
 
@@ -183,16 +199,14 @@ class UserTestFeature extends testCase{
             'credits' => 500,
         ];
 
-        $this->post('api/user', $data);
+        $register = $this->post('api/register', $data);
 
-        $login = $this->post('api/login', $data);
-
-        $token = $login->json('token');
+        $token = $register->json('token');
 
         $response = $this->get('api/logout',['Authorization' => 'Bearer '.$token]);
 
         $response->AssertJson([
-            'message' => 'realizado',
+            'message' => 'logout realizado!',
         ]);
 
 
@@ -208,19 +222,12 @@ class UserTestFeature extends testCase{
             'password' => '123456',
             'confirmPassword' => '123456',
             'credits' => 500,
-        ];
-        
-        $logindata = [
-            'email' => 'user@user.com',
-            'password' => '123456'
         ];  
 
-        $post = $this->post('api/user',$data);
+        $register = $this->post('api/register',$data);
 
-        $login = $this->post('api/login', $logindata);
-
-        $token = $login->json('token');
-
+        $token = $register->json('token');
+    
         $response = $this->get('api/getDetails',['Authorization' => 'Bearer '.$token]);
 
         $response->assertStatus(200);

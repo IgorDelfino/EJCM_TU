@@ -52,7 +52,7 @@ class UserController extends Controller
       $user = User::findOrFail($id);
 
       if ($user) {
-        return response()->json([$user]);
+        return response()->json(['user' => $user]);
       } else {
         return response()->error($data, 400);
       }
