@@ -66,6 +66,7 @@ class UserTestUnit extends TestCase
 
         $bought = $user->finishPurchase($purchase);
 
+        $this->assertTrue($bought);
         $this->assertEquals(5,$user->credits);
     }
 

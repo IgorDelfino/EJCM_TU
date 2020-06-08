@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Exceptions\OutOfStockException;
 
 class Product extends Model
 {
@@ -15,7 +16,7 @@ class Product extends Model
     /* Função que atualiza o estoque de produtos */
     public function updateStock($quantity) {
         if ($quantity > $this->stock) {
-            return false;
+            throw new OutOfStockException('Sem Estoque!');
         } else {
             $this->stock -= $quantity;
             return true;

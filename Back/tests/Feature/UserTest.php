@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 use App\User;
 use App\Purchase;
+use App\Phone;
 
 class UserTestFeature extends testCase{
     
@@ -36,6 +37,18 @@ class UserTestFeature extends testCase{
         $this->assertEquals(1, $user->purchases->count());
 
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $user->purchases);
+    }
+
+    /* Teste one to one com a Model Phone */
+    public function testUserHasOnePhone() {
+        $user = factory(User::Class)->create();
+        $phone = factory(Phone::class)->create(['user_id' => $user->id]);
+
+        // Método 1:
+        $this->assertInstanceOf(Phone::class, $user->phone); 
+        
+        // Método 2:
+        $this->assertEquals(1, $user->phone->count()); 
     }
     
 
