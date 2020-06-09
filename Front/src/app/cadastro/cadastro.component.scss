@@ -13,7 +13,7 @@
 .barraLateral{
     display:flex;
     width:25vw;
-    height: 100%;
+    height: 120%;
     position: absolute;
     top:0;
     bottom:0;
@@ -41,6 +41,7 @@
     color:white;
     font-size:30px;
     font-family: 'Roboto Condensed', sans-serif;
+    margin-left: 35px;
 
 }
 
@@ -94,7 +95,7 @@ input{
 }
 .bttn{
     text-align:center;
-    padding-left:50px;
+    padding-left:35px;
     width:30%;
     margin-left:37%;
     margin-bottom:30px;
@@ -106,7 +107,7 @@ input{
     border:none;
     font-size:30px;
     outline:none;
-    cursor:pointer;
+    cursor: pointer;
     align-self:center;
     
 
@@ -115,7 +116,7 @@ input{
 .vaiParaLogin{
     margin-top:20px;
     color:#238080;
-    font-size:30px;
+    font-size:0px;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
