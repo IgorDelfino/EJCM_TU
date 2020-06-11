@@ -28,7 +28,7 @@ export class ProdutoComponent implements OnInit {
         estoque: 20
       },
       {
-        descricao:"Canetinha Hidrográfica 24 Cores Faber Castell 1UN ",
+        descricao:"Canetinhas Hidrográficas 24 Cores Faber Castell 1UN ",
         preco:13,
         img:"../../assets/produtos/canetinha.jpg",
         estoque: 30
