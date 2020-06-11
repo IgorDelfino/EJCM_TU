@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(public formbuilder: FormBuilder, public router:Router) {
+  constructor(public formbuilder: FormBuilder) {
 
     this.loginForm = this.formbuilder.group({
       email: [null, [Validators.required, Validators.email]],
@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
     console.log(form.value);
   }
 
-  vaiParaCadastro(){
-    this.router.navigate(['/cadastro'])
+  
+  teste(){
+    alert('Você está logado!')
   }
 }

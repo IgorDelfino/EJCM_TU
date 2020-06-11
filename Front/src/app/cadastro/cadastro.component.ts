@@ -27,6 +27,7 @@ export class CadastroComponent implements OnInit {
     console.log(form);
     console.log(form.value);
   }
-
+ 
+  
   
 }
