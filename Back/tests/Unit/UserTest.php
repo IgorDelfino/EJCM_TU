@@ -41,14 +41,45 @@ class UserTestUnit extends TestCase
 
     /*
         Testando que a cada compra finalizada um novo carrinho é iniciado!
-    
-    public function testNewPurchaseInitAfterBuy() {
-        $user = $this->createMock(User::class);
-        $user->credits = 38;
-        $purchase = new Purchase();
-        $purchase->total_price = 32;
+        Gancho para falar do Mock.
+    */
+    public function testUserDontHaveEnoughCredits() {
+        $user = new User();
+        $user->credits = 40;
+        $purchase = $this->createStub(Purchase::class);
+        
+        $purchase->method('getTotalPrice')->willReturn(50);
+
+        $this->assertFalse($user->finishPurchase($purchase));
+    }
+
+    /* 
+        Teste de exemplo Mock
+    */
+    public function testUserHasEnoughCredits() {
+        $user = $this->getMockBuilder(User::class)->setMethods(['beginPurchase'])->getMock(); //Estou mockando apenas o beginPurchase
+        $user->credits = 55;
+        $purchase = $this->createStub(Purchase::class);
+        $purchase->method('getTotalPrice')->willReturn(50);
+        
         $user->expects($this->once())->method('beginPurchase');
-        $user->finishPurchase($purchase);
+
+        $bought = $user->finishPurchase($purchase);
+
+        $this->assertTrue($bought);
+        $this->assertEquals(5,$user->credits);
+    }
+
+    /*
+        Outro exemplo de Mock
+    
+    public function testBeginPurchase() {
+        $user = new User();
+        $user->id = 3;
+
+        $purchase = $this->getMockBuilder(Purchase::class)->setMethods(['createPurchase'])->getMock();
+        $purchase->expects($this->once())->method('createPurchase')->with($user->id);
+        $user->beginPurchase();
     }*/
 
 

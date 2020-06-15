@@ -3,12 +3,54 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 use App\User;
+use App\Purchase;
+use App\Phone;
 
 class UserTestFeature extends testCase{
-    
+
     use RefreshDatabase;
+
+    /** @test
+     * Deliberar sobre o fato dele retornar um erro geral, explicar a importância e diferença disso para os testes unitários
+    */
+    public function testUsersDatabaseHasExpectedColumns()
+    {
+        $this->assertTrue(
+          Schema::hasColumns('users', [
+            'id','name', 'email', 'email_verified_at', 'password', 'credits'
+        ]), 1);
+    }
+
+    /*  Pode ser abordado como feature test depois
+        Teste das relações de usuário, todos os atributos precisam poder ser nulos
+    */
+    public function testUserHasPurchases() {
+        $user = factory(User::Class)->create();
+        $purchase = factory(Purchase::class)->create(['user_id' => $user->id]);
+
+        $this->assertTrue($user->purchases->contains($purchase));
+
+        $this->assertEquals(1, $user->purchases->count());
+
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $user->purchases);
+    }
+
+    /* Teste one to one com a Model Phone */
+    public function testUserHasOnePhone() {
+        $user = factory(User::Class)->create();
+        $phone = factory(Phone::class)->create(['user_id' => $user->id]);
+
+        // Método 1:
+        $this->assertInstanceOf(Phone::class, $user->phone);
+
+        // Método 2:
+        $this->assertEquals(1, $user->phone->count());
+    }
+
 
     /**
      * test for get
@@ -42,11 +84,11 @@ class UserTestFeature extends testCase{
 
         $response->assertStatus(200);
 
-        
+
     }
 
     /**
-     * test for post 
+     * test for post
      */
     public function testPostUser(){
         $data = [
@@ -63,7 +105,7 @@ class UserTestFeature extends testCase{
         $this->assertCount(1, User::all());
     }
 
-    /**public function testRegisterUser(){
+    public function testRegisterUser(){
         $this->withoutExceptionHandling();
 
         $data = [
@@ -79,9 +121,9 @@ class UserTestFeature extends testCase{
 
         $this->assertCount(1, User::all());
 
-    }*/
+    }
 
-    /**public function testLoginUser(){
+    public function testLoginUser(){
         $logindata = [
             'email' => 'tef@tef.com',
             'password' => '123456'
@@ -98,11 +140,11 @@ class UserTestFeature extends testCase{
         $this->post('api/user',$data);
 
         $this->post('api/login',$logindata)->assertStatus(200);
-        
-    }*/
+
+    }
 
     public function testDeleteUser(){
-        
+
         //$this->withoutExceptionHandling();
 
         $data = [
@@ -130,7 +172,7 @@ class UserTestFeature extends testCase{
             'name' =>  'tef tef',
             'email' => 'tef@tef.com',
             'password' => '123456',
-        ]; 
+        ];
 
         $this->withoutExceptionHandling();
 
@@ -157,7 +199,7 @@ class UserTestFeature extends testCase{
 
         $this->assertEquals(700, $user->credits);
 
-        
-    }   
-    
+
+    }
+
 }

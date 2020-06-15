@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $this-call(UserTableSeeder::Class);
         $this-call(PurchaseTableSeeder::Class);
         $this-call(ProductTableSeeder::Class);
+        $this-call(PhoneTableSeeder::Class);
     }
 }

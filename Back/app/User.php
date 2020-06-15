@@ -72,6 +72,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Purchase');
     }
 
+    /* Usuário possui um telefone */
+    public function phone() {
+        return $this->hasOne('App\Phone');
+    }
+
     /* Adiciona créditos ao usuário*/
     public function addCredits($value) {
         return $this->credits += $value;
@@ -82,15 +87,19 @@ class User extends Authenticatable
         Purchase::createPurchase($this->id);
     }
 
-    /* Usuário finaliza a compra de um carrinho de produtos */
+    /* Usuário finaliza a compra de um carrinho de produtos 
+       Usar como exemplo de isolamento total */
     public function finishPurchase($purchase) {
         //$purchase = Purchase::findOrFail($id);//
-        if ($purchase->total_price > $this->credits) {
+        $price = $purchase->getTotalPrice();
+        if ($price > $this->credits) {
             return false;
         } 
-        $this->credits -= $purchase->total_price;
+        $this->credits -= $price;
         $this->beginPurchase();
         return true;
     }
+
+    
  
 }
