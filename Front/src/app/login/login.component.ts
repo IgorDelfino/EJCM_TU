@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
   submitForm(form) {
     console.log(form);
     console.log(form.value);
-    // this.router.navigate(['/login']);
+    localStorage.setItem('token', 'hello');
+    window.open('/produto');
+    // this.router.navigate(['/produto']);
   }
 
 }
