@@ -7,6 +7,7 @@ import { ProdutoComponent } from './produto/produto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { TesteComponent } from './teste/teste.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     AppComponent,
     ProdutoComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    TesteComponent
   ],
   imports: [
     BrowserModule,

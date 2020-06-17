@@ -21,17 +21,17 @@ beforeEach(async(() => {
   }).compileComponents();
   }));
   
-  beforeEach(() => {
-        equipamento = TestBed.createComponent(AppComponent);
-        component = equipamento.componentInstance;
-        equipamento.detectChanges();
-      });
+  // beforeEach(() => {
+  //       equipamento = TestBed.createComponent(AppComponent);
+  //       component = equipamento.componentInstance;
+  //       equipamento.detectChanges();
+  //     });
     
-     it('Deve renderizar mensagem no h1', async(() => {
-      const equipamento = TestBed.createComponent(AppComponent);
-      const compiled = equipamento.debugElement.nativeElement;
-      expect(compiled.querySelector('h1').textContent).toEqual('TU Paper');
-  }));
+  //    it('Deve renderizar mensagem no h1', async(() => {
+  //     const equipamento = TestBed.createComponent(AppComponent);
+  //     const compiled = equipamento.debugElement.nativeElement;
+  //     expect(compiled.querySelector('h1').textContent).toEqual('TU Paper');
+  // }));
   
   it('Deve tirar o snapshot', () => {
     expect(equipamento).toMatchSnapshot();

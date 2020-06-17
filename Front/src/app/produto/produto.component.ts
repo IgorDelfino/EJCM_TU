@@ -13,7 +13,7 @@ export class ProdutoComponent implements OnInit {
    produtos;
    toggleCompra = true;
    
-  constructor(public router :Router) { 
+  constructor() { 
     
   }
 
@@ -62,23 +62,21 @@ export class ProdutoComponent implements OnInit {
        return;
     }
 
-    casaFunction (items, callback) {
-      for (let index = 0; index < items.length; index++) {
-        callback(items[index]);
-      }
-    }
+    // casaFunction (items, callback) {
+    //   for (let index = 0; index < items.length; index++) {
+    //     callback(items[index]);
+    //   }
+    // }
     
-    Sum (a, b){
-      return a + b;
-    }
+    // Sum (a, b){
+    //   return a + b;
+    // }
 
-    toggle () {
-      this.toggleCompra = !this.toggleCompra;
-    }
+    // toggle () {
+    //   this.toggleCompra = !this.toggleCompra;
+    // }
    
-  vaiParaLogin(){
-    this.router.navigate(['/login'])
-  }
+ 
 }
 
 

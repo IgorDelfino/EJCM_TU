@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TesteComponent Teste Snapshot Snapshot 1`] = `
+<app-teste>
+  <div>
+    <p>
+      Hello, World!
+    </p>
+    <p>
+      Façam testes unitários!!
+    </p>
+    <p>
+      Beijos da tia Isa!!
+    </p>
+  </div>
+</app-teste>
+`;
