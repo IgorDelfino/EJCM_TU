@@ -30,11 +30,7 @@ export class ProdutoComponent implements OnInit {
         estoque: 20
       },
       {
-<<<<<<< HEAD
         descricao:" Estojo de Canetinha Hidrográfica 24 Cores Faber Castell 1UN ",
-=======
-        descricao:"Canetinhas Hidrográficas 24 Cores Faber Castell 1UN ",
->>>>>>> 2e49dd529c727ad7b440e7fb212d2b82ce386703
         preco:13,
         img:"../../assets/produtos/canetinha.jpg",
         estoque: 30
@@ -61,27 +57,6 @@ export class ProdutoComponent implements OnInit {
     
   }
    
-   alteraEstoque(produto){
-       produto.estoque --
-    }
-
-    casaFunction (items, callback) {
-      for (let index = 0; index < items.length; index++) {
-        callback(items[index]);
-      }
-    }
-    
-    Sum (a, b){
-      return a + b;
-    }
-
-    toggle () {
-      this.toggleCompra = !this.toggleCompra;
-    }
-   
-  vaiParaLogin(){
-    this.router.navigate(['/login'])
-  }
 }
 
 
