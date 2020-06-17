@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^9.1.9",
     "@angular/platform-browser-dynamic": "^9.1.9",
     "@angular/router": "^9.1.9",
+    "@briebug/jest-schematic": "^2.1.1",
     "lib-testing": "^1.0.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.13.0",
@@ -45,9 +46,33 @@
     "typescript": "~3.8.3"
   },
   "jest": {
+    "moduleNameMapper": {
+      "@app/(.*)": "<rootDir>/src/app/$1",
+      "@assets/(.*)": "<rootDir>/src/assets/$1",
+      "@core/(.*)": "<rootDir>/src/app/core/$1",
+      "@env": "<rootDir>/src/environments/environment",
+      "@src/(.*)": "<rootDir>/src/src/$1",
+      "@state/(.*)": "<rootDir>/src/app/state/$1"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "<rootDir>/tsconfig.spec.json",
+        "stringifyContentPathRegex": "\\.html$",
+        "astTransformers": [
+          "jest-preset-angular/build/InlineFilesTransformer",
+          "jest-preset-angular/build/StripStylesTransformer"
+        ]
+      }
+    },
     "preset": "jest-preset-angular",
+    "roots": [
+      "src"
+    ],
     "setupFilesAfterEnv": [
-      "<rootDir>/src/setupJest.ts"
-    ]
+      "<rootDir>/src/setup-jest.ts"
+    ],
+    "transform": {
+      "^.+\\.(ts|js|html)$": "ts-jest"
+    }
   }
 }
