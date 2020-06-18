@@ -12,7 +12,7 @@ export class ProdutoComponent implements OnInit {
    toggleCompra = true
    a=1;
    b:number=2;
-  constructor(public router :Router) { 
+  constructor() { 
 
      
     this.produtos =[
@@ -56,7 +56,7 @@ export class ProdutoComponent implements OnInit {
   ngOnInit(): void {
     
   }
-   
+  
 }
 
 
