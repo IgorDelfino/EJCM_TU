@@ -39,20 +39,6 @@ class UserTestUnit extends TestCase
         $this->assertEquals($expected, $user->addCredits($credits));
     }
 
-    /*
-        Testando que a cada compra finalizada um novo carrinho é iniciado!
-        Gancho para falar do Mock.
-    */
-    public function testUserDontHaveEnoughCredits() {
-        $user = new User();
-        $user->credits = 40;
-        $purchase = $this->createStub(Purchase::class);
-        
-        $purchase->method('getTotalPrice')->willReturn(50);
-
-        $this->assertFalse($user->finishPurchase($purchase));
-    }
-
     /* 
         Teste de exemplo Mock
     */
